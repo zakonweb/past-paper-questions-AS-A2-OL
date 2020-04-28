@@ -1,0 +1,18 @@
+PROCEDURE CountLines(BYVAL FName : String)
+    DECLARE textLine : String
+    DECLARE linesCount : Integer
+
+    textLine = ""
+    linesCount = 0
+    
+    OPENFILE FName FOR READ
+    WHILE NOT EOF(FName)
+        READFILE FName, textLine
+        linesCount = linesCount + 1
+    END WHILE
+    CLOSEFILE FName
+
+    OUTPUT "Number of Lines in file = ", linesCount
+END PROCEDURE
+
+CALL CountLines("C:\dsdfff\abc.txt")

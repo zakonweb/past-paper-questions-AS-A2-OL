@@ -1,0 +1,32 @@
+DECLARE InString : STRING
+DECLARE NewString : STRING
+DECLARE Index : INTEGER
+DECLARE NextChar : CHAR
+DECLARE Selected : INTEGER
+DECLARE NewValue : INTEGER
+
+NewString = '0'
+Selected = 0
+
+OUTPUT "Enter string to process: "
+INPUT InString
+
+FOR Index = 1 TO LENGTH(InString)
+    NextChar = MID(InString, Index, 1)
+
+    IF NextChar < '0' OR NextChar > '9'
+      THEN
+        NewValue = STRING_TO_NUM(NewString)
+
+        IF NewValue > Selected
+          THEN
+            Selected = NewValue
+        ENDIF
+        NewString = '0'
+
+      ELSE
+        NewString = NewString & NextChar
+    ENDIF
+ENDFOR
+
+OUTPUT Selected
