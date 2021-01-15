@@ -1,0 +1,25 @@
+DECLARE UserNameArray : ARRAY [1:100] OF STRING
+DECALRE i,j,t : INTEGER
+DECLARE alreadySorted : BOOLEAN
+DECLARE CurrentID, NextID : INTEGER
+
+i = 0
+j = 0
+t = 0
+alreadySorted = TRUE
+
+FOR j = 99 TO 1 STEP -1
+    alreadySorted = TRUE
+    FOR i = 1 to j
+        CurrentID = VAL(LEFT(UserNameArray[i], 6)) 
+        NextID = VAL(LEFT(UserNameArray[i+1], 6))
+
+        IF CurrentID > NextID
+         THEN
+           t = UsernameArray[i]
+           UsernameArray[i] = UsernameArray[i+1]
+           UsernameArray[i+1] = t
+           alreadySorted = FALSE
+    ENDFOR
+    IF alreadySorted = TRUE THEN EXIT FOR
+ENDFOR
