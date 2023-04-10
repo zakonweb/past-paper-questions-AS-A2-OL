@@ -1,0 +1,109 @@
+9618/21/O/N/22 Q7
+7.
+//A simple arithmetic expression is stored as a string in the format:
+//<Value1><Operator><Value2>
+//An operator character is one of the following: ' + ' ' − ' ' * ' ' / '
+//Example arithmetic expression strings:
+//"803+1904"
+//"34/7"
+//(a) A procedure Calculate() will:
+//• take an arithmetic expression string as a parameter
+//• evaluate the expression
+//• output the result.
+//Assume:
+//• the string contains only numeric digits and a single operator character
+//• Value1 and Value2 represent integer values
+//• Value1 and Value2 are unsigned (they will not be preceded by ' + ' or ' − ').
+//(i) Write pseudocode for the procedure Calculate().
+
+PROCEDURE Calculate(expression : STRING)
+    DECLARE value1, value2, result, A, S, M, D : INTEGER
+    DECLARE operator : CHARACTER
+    
+    // Parse the expression string
+    A ← LOCATE(expression, '+')
+    S ← LOCATE(expression, '-')
+    M ← LOCATE(expression, '*')
+    D ← LOCATE(expression, '+')
+
+    IF A > 0 THEN // + is found as operator
+       value1 ← INT(MID(expression, 1, A-1))
+       operator ← '+'
+       value2 ← INT(MID(expression, A+1, LENGTH(expression)-A))
+    ELSEIF S > 0 THEN // - is found as operator
+       value1 ← INT(MID(expression, 1, S-1))
+       operator ← '-'
+       value2 ← INT(MID(expression, S+1, LENGTH(expression)-S))
+    ELSEIF M > 0 THEN // * is found as operator
+       value1 ← INT(MID(expression, 1, M-1))
+       operator ← '*'
+       value2 ← INT(MID(expression, M+1, LENGTH(expression)-M))
+    ELSEIF D > 0 THEN // / is found as operator
+       value1 ← INT(MID(expression, 1, D-1))
+       operator ← '/'
+       value2 ← INT(MID(expression, D+1, LENGTH(expression)-D))
+    ENDIF
+    
+    // Perform the arithmetic operation based on the operator 
+    IF operator = '+' THEN
+        result ← value1 + value2
+    ELSEIF operator = '-' THEN
+        result ← value1 - value2
+    ELSEIF operator = '*' THEN
+        result ← value1 * value2
+    ELSEIF operator = '/' THEN
+        result ← value1 / value2
+    ENDIF
+    
+    // Output the result
+    OUTPUT "The result is: ", result
+ENDPROCEDURE
+
+//SHORT CODE
+PROCEDURE Calculate(expression : STRING)
+    DECLARE value1, value2, result, Op : INTEGER
+    DECLARE operator : CHAR
+    
+    Op ← 0
+    // Parse the expression string
+    IF LOCATE(expression, '+') > 0 THEN 
+        Op ←  LOCATE(expression, '+')
+        operator ← '+'
+    ELSEIF LOCATE(expression, '-') > 0 THEN
+        Op ←  LOCATE(expression, '-')
+        operator ← '-'
+    ELSEIF LOCATE(expression, '*') > 0 THEN
+        Op ←  LOCATE(expression, '*')
+        operator ← '*'
+    ELSEIF LOCATE(expression, '/') > 0 THEN
+        Op ←  LOCATE(expression, '/')
+        operator ← '/'
+    ENDIF
+
+    IF Op > 0 THEN
+       value1 ← INT(MID(expression, 1, Op-1))
+       value2 ← INT(MID(expression, Op+1, LENGTH(expression)-Op))
+    
+       // Perform the arithmetic operation based on the operator 
+       CASE OF operator
+       '+' : result ← value1 + value2
+       '-' : result ← value1 - value2
+       '*' : result ← value1 * value2
+       '/' : result ← value1 / value2
+       ENDCASE
+    ENDIF
+    
+    // Output the result
+    OUTPUT "The result is: ", result
+ENDPROCEDURE
+
+------------------------------------------------------------
+7 (a) ii.
+FUNCTION Calculate(expression : STRING) RETURNS RETURNS REAL
+
+------------------------------------------------------------
+7 (b):
+Example string: "2/0"
+
+Explanation: The string "2/0" is correctly formatted as an arithmetic expression, but it is impossible to evaluate because it contains a division by zero. Division by zero is undefined and cannot be computed, so attempting to evaluate this expression would result in an error.
+--------------------------------------------------------------

@@ -1,0 +1,12 @@
+PROCEDURE GetCentre()
+   CentreRow = -1
+   FR = FirstRowSet()
+   IF FR <> -1 THE
+     LR = LastRowSet()
+     FC = FirstColSet()
+     LC = LastColSet()
+
+     CentreRow = (LR-FR)/2
+     CentreCol = (LC-FC)/2
+   ENDIF
+END PROCEDURE

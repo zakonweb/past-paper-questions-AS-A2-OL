@@ -1,0 +1,27 @@
+Record Student
+    DECLARE StudentID : STRING
+    DECLARE Email : STRING
+    DECLARE Club_1 : INTEGER
+    DECLARE Club_2 : INTEGER
+    DECLARE Club_3 : INTEGER
+END Record
+
+DECLARE Membership : ARRAY [1:3000] OF Student
+
+3(b)
+PROCEDURE GetIDs()
+   DECLARE Club,i ,c : INTEGER
+   Club = 0
+   c = 0
+
+   INPUT "Enter club to work for: ", Club
+   FOR i = 1 to 3000
+      IF Membership[i].Club_1 = Club OR Membership[i].Club_2 = Club OR Membership[i].Club_3 = Club
+        THEN
+          OUTPUT Membership[i].StudentID
+          c = c + 1
+      ENDIF
+   NEXT
+  
+   OUTPUT "Count of students in the given club = ", c
+END PROCEDURE

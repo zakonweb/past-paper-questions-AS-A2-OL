@@ -1,0 +1,7 @@
+9618/21/O/N/22 Q8
+(d)
+Two other examples of syntax errors that cannot be detected from examining a single line are:
+
+Mismatched parentheses: This error occurs when the number of opening and closing parentheses in an expression does not match. For example, the expression "((2+3)*4" has one opening parenthesis and two closing parentheses, which is a syntax error.
+
+Undefined variables: This error occurs when a variable is used in an expression but has not been defined or declared previously in the program. For example, the expression "x + 5" is a syntax error if the variable "x" has not been declared before.

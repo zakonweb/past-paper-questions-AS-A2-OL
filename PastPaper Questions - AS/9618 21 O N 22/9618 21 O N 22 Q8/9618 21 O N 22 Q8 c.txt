@@ -1,0 +1,46 @@
+9618/21/O/N/22
+
+PROCEDURE CountErrors(ProjectFile: string, MaxErrors: integer)
+    DECLARE CurrentLine: string
+    DECLARE LineError: integer
+
+    // Test the project file and stop IF it's not valid
+    IF NOT CheckFile(ProjectFile) THEN
+        OUTPUT "Error: Invalid project file."
+        EXIT PROCEDURE
+    ENDIF
+    
+    // Open the project file
+    OPENFILE ProjectFile FOR READ
+    
+    // Initialize error counter
+    DECLARE ErrorCount: integer
+    ErrorCount ← 0
+    
+    // Loop through each line in the project file
+    WHILE NOT EOF(ProjectFile)
+        // Read a line from the project file
+        READFILE ProjectFile, CurrentLine
+        
+        // Check the line for errors
+        LineError ← CheckLine(CurrentLine)
+        
+        // Increment error counter IF necessary
+        IF LineError <> 0 THEN
+            ErrorCount ← ErrorCount + 1
+        ENDIF
+        
+        // Stop IF the maximum number of errors is reached
+        IF ErrorCount >= MaxErrors THEN
+            OUTPUT "Warning: Maximum number of errors reached."
+            CLOSEFILE ProjectFile
+            EXIT PROCEDURE
+        ENDIF
+    ENDWHILE
+    
+    // Close the project file
+    CLOSEFILE ProjectFile
+    
+    // Output the number of errors
+    OUTPUT "Number of errors found: ", ErrorCount
+ENDPROCEDURE

@@ -1,0 +1,17 @@
+FUNCTION LogEvenets(sID : STRING) RETURNS INTEGER
+    DECLARE i, Count : INTEGER
+    i = 0
+    Count = 0
+    
+    OPENFILE "LogFile" FOR WRITE
+    FOR i = 1 TO 2000
+        IF LEFT(LogArray[i],6) = sID THEN
+            WRITEFILE "LogFile", LogArray[i]
+            LogArray[i] = ""
+            Count = Count + 1
+        ENDIF   
+    NEXT
+    CLOSEFILE "LogFile"
+
+    RETURN Count
+END FUNCTION

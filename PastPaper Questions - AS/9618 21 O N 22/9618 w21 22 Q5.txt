@@ -1,0 +1,25 @@
+PROCEDURE MakeNewFile(fileName, newFile, status : STRING)
+     DECLARE empName, empAdd, empStatus : String
+     DECLARE originalCount, newCount : INTEGER
+
+     OPENFILE newFile FOR WRITE
+     OPENFILE fileName FOR READ
+     WHILE NOT EOF(fileName)
+       READFILE fileName, empName
+       READFILE fileName, empAdd
+       READFILE fileName, empStatus
+       originalCount = originalCount + 1
+
+       IF empStatus <> status THEN
+          WRITEFILE newFile, empName
+          WRITEFILE newFile, empAdd
+          WRITEFILE newFile, empStatus
+          newCount = newCount + 1
+       ENDIF
+     ENDWHILE     
+     CLOSEFILE fileName
+     CLOSEFILE newFile
+
+     OUTPUT "File Marketing contained " & originalCount & " employee detail."
+     OUTPUT newCount & " employee sets of details were written to file NewMarketingList."
+END PROCEDURE

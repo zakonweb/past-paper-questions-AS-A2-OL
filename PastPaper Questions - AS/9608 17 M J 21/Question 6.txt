@@ -1,0 +1,50 @@
+Function ValidatePassword(ByVal Password AS String) AS Boolean
+Dim Counter, i AS Integer
+Dim ch AS Character
+
+Counter = 0
+For i = 1 to Len(Password)
+  Ch = MID(Password, i, 1)
+  If Ch >= "a" AND Ch <= "z" Then Counter = Counter +1
+Next i
+If Counter < 2 Then
+  Return False
+  Exit Function
+End If
+
+Counter = 0
+For i = 1 to Len(Password)
+  Ch = MID(Password, i, 1)
+  If Ch >= "A" AND Ch <= "Z" Then Counter = Counter +1
+Next i
+If Counter < 2 Then
+  Return False
+  Exit Function
+End If
+
+Counter = 0
+For i = 1 to Len(Password)
+  Ch = MID(Password, i, 1)
+  If Ch >= "0" AND Ch <= "9" Then Counter = Counter +1
+Next i
+If Counter < 3 Then
+  Return False
+  Exit Function
+End If
+
+Counter = 0
+For i = 1 to Len(Password)
+  Ch = MID(Password, i, 1)
+  If (UCase(Ch) >= "A" AND Ch <= "Z") OR _ 
+     (Ch >= "0" AND Ch <= "9") Then  
+     
+	 Counter = Counter +1
+  End If
+Next i
+If Counter <> Len(Password) Then
+  Return False
+  Exit Function
+End If
+
+Return True
+End Function  

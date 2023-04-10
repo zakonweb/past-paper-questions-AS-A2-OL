@@ -1,0 +1,6 @@
+PROCEDURE SetRow(rowNo, Skip, Pixels : INTEGER)
+    DECLARE i : INTEGER
+    FOR i = Skip+1 to Skip+1+Pixels
+       Screen[rowNo, i] = 1
+    NEXT 
+END PROCEDURE

@@ -1,0 +1,15 @@
+DECLARE Count : INTEGER
+DECLARE Flag : BOOLEAN
+
+Count = 1
+Flag = FALSE
+
+WHILE Flag = FALSE AND Count <= 5 THEN
+    CALL ReBoot()
+    Count = Count + 1
+    Flag = Check()
+ENDWHILE
+
+IF Flag = False THEN
+    CALL Alert(27)
+ENDIF

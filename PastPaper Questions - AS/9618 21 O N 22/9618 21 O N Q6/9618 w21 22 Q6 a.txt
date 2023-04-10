@@ -1,0 +1,14 @@
+FUNCTION FirstRowSet() RETURNS INTEGER
+   DECLARE firstRow : INTEGER
+   firstRow = -1
+   FOR row = 1 TO 800
+      FOR col = 1 to 1280
+       IF Screen[row, col] = 1 THEN
+          firstRow = row
+          EXIT FOR
+       ENDIF
+      NEXT
+      IF firstRow > -1 THEN Exit FOR
+   NEXT row
+   RETURN firstRow
+END FUNCTION

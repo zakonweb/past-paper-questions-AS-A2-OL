@@ -1,0 +1,13 @@
+INPUT Val
+WHILE Val <> 0 DO
+    IF Val > 0 THEN
+       pTot = pTot + Val
+       pCount = pCOunt + 1
+    ELSEIF Val < 0 THEN
+       nTot = nTot + Val
+       nCount = nCount + 1
+    END IF
+    INPUT Val
+ENDWHILE
+OUTPUT pTot, pCount
+OUTPUT nTot, nCount

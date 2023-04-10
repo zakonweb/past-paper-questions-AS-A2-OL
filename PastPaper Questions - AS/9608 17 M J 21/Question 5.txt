@@ -1,0 +1,18 @@
+Sub SearchFile()
+FileOpen (1,"LoginFIle.txt", Openmode.Input)
+Dim rn AS Integer = 0
+Dim SearchID AS String = ""
+Dim recStr AS Str = ""
+SearchID = Console.Readline()
+
+While Not EOF(1)
+  Input(1,recStr)
+  IF Left(recStr,4) = SearchID Then
+    rn = rn + 1
+    LoginEvent(rn,1) = Mid(recStr,6,4) 
+	LoginEvent(rn, 2) = Right(recStr, 14)
+  End IF
+End While
+
+FileCLose(1)
+End Sub 

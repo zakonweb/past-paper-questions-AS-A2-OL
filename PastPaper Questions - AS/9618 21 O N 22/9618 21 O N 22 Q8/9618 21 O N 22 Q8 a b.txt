@@ -1,0 +1,28 @@
+9618/21/O/N/22 Q8
+a)
+FUNCTION CheckFile(filename: STRING) RETURNS BOOLEAN
+    DECLARE line: STRING
+    DECLARE count: INTEGER
+
+    count ← 0
+
+    OPENFILE filename FOR READ
+    WHILE NOT EOF(filename)
+        READFILE filename, line
+        IF line <> "" THEN
+            count ← count + 1
+        ENDIF
+    ENDWHILE
+    CLOSEFILE filename
+
+    IF count >= 10 THEN
+        RETURN TRUE
+    ELSE
+        RETURN FALSE
+    ENDIF
+ENDFUNCTION
+
+-------------------------------------
+b) CALL CountErrors("Jim01Prog.txt", 20)
+--------------------------------------
+

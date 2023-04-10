@@ -1,0 +1,13 @@
+FUNCTION SearchInRow(rowNo, startCol : INTEGER) RETURNS INTEGER
+   DECLARE FoundAt, i : INTEGER
+   FoundAt = -1
+
+   FOR i = startCol TO 1280
+      IF Screen[rowNo, i] = 1 THEN
+         FoundAt = i
+         EXIT FOR
+      ENDIF
+   NEXT
+ 
+   RETURN FoundAt
+END FUNCTION
