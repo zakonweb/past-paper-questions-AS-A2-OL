@@ -1,0 +1,90 @@
+7a)
+PROCEDURE OutputRange()
+    DECLARE StartErr, EndErr, Count : INTEGER
+    DECLARE i : INTEGER
+    Count ← 0
+
+    OUTPUT "Enter the starting error number: "
+    INPUT StartErr
+
+    OUTPUT "Enter the ending error number:"
+    INPUT EndErr
+
+    OUTPUT "List of error numbers from ", StartErr, " to ", EndErr
+
+    FOR i ← 1 TO 500
+        IF ErrCode[i] >= StartErr AND ErrCode[i] <= EndErr THEN
+            OUTPUT ErrCode[i], " : "
+            IF ErrText[i] = "" THEN
+                OUTPUT "Error Text Missing"
+            ELSE
+                OUTPUT ErrText[i]
+            ENDIF
+            Count ← Count + 1
+        ENDIF
+        IF ErrCode[i] = 999 THEN
+            EXIT FOR
+        ENDIF
+    ENDFOR
+
+    OUTPUT Count, " error numbers output"
+ENDPROCEDURE
+--------------------------------------------------------
+
+7bi)
+FUNCTION AddError(NewErrCode : INTEGER, NewErrText : STRING) RETURNS INTEGER
+    DECLARE i, InsertIndex, UnusedElements : INTEGER
+    UnusedElements ← 0
+    InsertIndex ← -1
+
+    FOR i ← 1 TO 500
+        IF ErrCode[i] = 999 THEN
+            UnusedElements ← UnusedElements + 1
+            IF InsertIndex = -1 THEN
+                InsertIndex ← i
+            ENDIF
+        ELSEIF ErrCode[i] > NewErrCode AND InsertIndex = -1 THEN
+            InsertIndex ← i
+        ENDIF
+    ENDFOR
+
+    IF InsertIndex = -1 THEN
+        RETURN -1
+    ELSE
+        FOR i ← 500 TO InsertIndex + 1 STEP -1
+            ErrCode[i] ← ErrCode[i - 1]
+            ErrText[i] ← ErrText[i - 1]
+        ENDFOR
+
+        ErrCode[InsertIndex] ← NewErrCode
+        ErrText[InsertIndex] ← NewErrText
+
+        RETURN UnusedElements - 1
+    ENDIF
+ENDFUNCTION
+
+7bii)
+PROCEDURE RemoveError(TargetErrCode : INTEGER)
+    DECLARE i, RemoveIndex : INTEGER
+    RemoveIndex ← -1
+
+    FOR i ← 1 TO 500
+        IF ErrCode[i] = TargetErrCode THEN
+            RemoveIndex ← i
+            EXIT FOR
+        ENDIF
+    ENDFOR
+
+    IF RemoveIndex <> -1 THEN
+        FOR i ← RemoveIndex TO 499
+            ErrCode[i] ← ErrCode[i + 1]
+            ErrText[i] ← ErrText[i + 1]
+        ENDFOR
+
+        ErrCode[500] ← 999
+        ErrText[500] ← "" 
+    ENDIF
+ENDPROCEDURE
+
+Description:
+This pseudocode removes the given error number (TargetErrCode) from the ErrCode and ErrText arrays, maintaining the order of the remaining elements in the arrays. If the error number is found, it removes the error number and its description and shifts the remaining elements to fill the gap. Finally, it updates the last element of the arrays as unused.

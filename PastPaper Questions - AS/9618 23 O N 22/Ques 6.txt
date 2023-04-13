@@ -1,0 +1,17 @@
+6a)
+Test   C. Weight Min Max Return
+1      Min+3=6   3   10  'A'
+2      Max-3=7   3   10  'A'
+3      Max+3=13  3   10  'R'
+4      Min-3=0   3   10  'R'
+5      Max-1=9   3   10  'C'
+
+6b) FUNCTION Status(ComponentWeight : INTEGER, Min : INTEGER, Max : INTEGER) RETURNS CHAR
+    IF ComponentWeight <= Min - 3 OR ComponentWeight >= Max + 3 THEN
+        RETURN 'R'
+    ELSEIF ComponentWeight >= Max - 2 OR ComponentWeight <= Min + 2 THEN
+        RETURN 'C'
+    ELSE
+        RETURN 'A'
+    ENDIF
+ENDFUNCTION

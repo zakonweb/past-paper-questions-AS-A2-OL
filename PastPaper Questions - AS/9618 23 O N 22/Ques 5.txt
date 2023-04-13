@@ -1,0 +1,33 @@
+5a)
+PROCEDURE Unpack(originalText : STRING, BYREF StockID : STRING, BYREF Description : STRING, BYREF Cost : STRING)
+    StockID ← MID(originalText, 1, 5)
+    Description ← MID(originalText, 6, 32)
+    Cost ← Text_to_Real(MID(originalText,38, LENGTH(originalText)-38))
+ENDPROCEDURE
+
+5bi)
+DECLARE LineData : StockItem
+LineData.Cost ← 12.99
+
+5bii)
+FUNCTION Unpack(originalText: STRING) RETURNS StockItem
+    DECLARE itemData : StockItem
+    
+    itemData.StockID ← MID(originalText, 1, 5)
+    itemData.Description ← MID(originalText,6, 36)
+    itemData.Cost ← TEXT_TO_REAL(MID(originalText, 38, LENGTH(originalText)-38)
+    
+    RETURN itemData
+ENDFUNCTION
+
+1. Change the procedure definition to a function definition:
+Instead of using PROCEDURE Unpack(), use FUNCTION Unpack(originalText: STRING) RETURNS StockItem.
+2. Instead of using separate parameters for the individual data items, create a new variable of type StockItem within the function:
+
+DECLARE itemData : StockItem.
+
+3. Parse the input string and assign the values to the respective fields of the itemData variable.
+
+4. Replace the assignments to the separate parameters with assignments to the corresponding fields of the itemData variable.
+
+5. Use the RETURN statement to return the itemData variable as the result of the function.
