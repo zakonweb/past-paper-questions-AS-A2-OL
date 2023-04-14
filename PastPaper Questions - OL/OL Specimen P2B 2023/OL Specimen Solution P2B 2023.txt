@@ -1,0 +1,224 @@
+3. 
+Test data value: 1.5 kilograms
+Reason: This value is below the minimum threshold of 2 kilograms. This test case is important because it checks whether the program can correctly identify and handle a baby's weight that is considered too low. By using this test data, you can ensure that the program is properly determining when a baby's weight does not meet the required criteria and can respond accordingly (e.g., displaying a warning or recommending further evaluation).
+Type: Abnormal
+
+Test data value: 2.5 kilograms
+Reason: This value is above the minimum threshold of 2 kilograms. This test case is important because it verifies that the program can correctly identify and handle a baby's weight that is considered within the acceptable range. By using this test data, you can confirm that the program is properly determining when a baby's weight meets or exceeds the required criteria and can respond appropriately (e.g., providing a positive result or proceeding to the next step in the process).
+Type: Normal
+
+4:
+To prevent the 'File not found' error from occurring, the program should follow these steps:
+
+Check if the file exists: Before trying to read the data from a file, the program should first check if the file actually exists in the specified location. This can be done using a built-in function or method, depending on the programming language being used.
+
+Handle errors gracefully: If the file does not exist, instead of crashing or showing an error message, the program should handle the situation in a user-friendly manner. This can include displaying a message informing the user that the file was not found, and possibly providing instructions on how to fix the issue, such as specifying a correct file path or creating the missing file.
+
+Provide a default file or data: In case the file is not found, the program could use a default file or a set of default data to continue its operation. This way, the program can still function, albeit with some limitations, without encountering the 'File not found' error.
+
+Prompt the user: If the file is not found, the program can prompt the user to enter a new file path or select a file through a file picker dialog. This allows the user to correct the issue by providing a valid file to read from, preventing the error from occurring.
+
+By taking these actions, the program can handle missing files more effectively, and prevent the 'File not found' error from causing an unexpected halt in its operation.
+
+5a)
+Here's a pseudocode algorithm steps for the given task:
+
+1. Initialize a variable positiveCount to 0
+2. Start a loop (e.g., a while/repeat loop)
+  a. Read an input number and store it in a variable number
+  b. If number is greater than 0, then increment positiveCount by 1
+  c. If number is equal to 0, then exit the loop
+Output the value of positiveCount
+End the algorithm
+
+positiveCount ← 0
+REPEAT
+   INPUT "Enter an integer: ", Number
+   If Number > 0 THEN positiveCount ← positiveCount + 1
+UNTIL Number = 0
+OUPUT "Positive count = ", positiveCount 
+
+5b)
+To modify the algorithm to also count negative numbers, you would need to add a new variable to keep track of the count of negative numbers and update the loop to increment this new variable when a negative number is encountered. Here's an updated version of the algorithm:
+
+Initialize two variables: positiveCount and negativeCount to 0
+Start a loop (e.g., a while loop)
+a. Read an input number and store it in a variable number
+b. If number is greater than 0, then increment positiveCount by 1
+c. If number is less than 0, then increment negativeCount by 1
+d. If number is equal to 0, then exit the loop
+Output the values of positiveCount and negativeCount
+End the algorithm
+
+positiveCount ← 0
+negativeCount ← 0
+
+REPEAT
+   INPUT "Enter an integer: ", Number
+   If Number > 0 THEN positiveCount ← positiveCount + 1
+   If Number < 0 THEN negativeCount ← negativeCount + 1
+UNTIL Number = 0
+OUPUT "Positive count = ", positiveCount 
+OUPUT "Negative count = ", negtiveCount 
+
+6)
+Here are the lines of code containing errors and their corrected versions:
+
+Error in line 04:
+Incorrect code: WHILE Number <= 99 AND Number >= 1001
+Corrected code: WHILE Number < 100 OR Number > 1000
+
+The original condition is not correct for checking if the number is outside the range of 100 to 1000. We need to use the OR operator instead of AND, and update the comparison operators.
+
+Error in line 07:
+Incorrect code: Num[80] ← Number
+Corrected code: Num[Index] ← Number
+
+The original code assigns the input number to the 80th element of the array every time. The corrected code assigns the input number to the correct position in the array, based on the value of Index.
+
+Error in line 09:
+Incorrect code: UNTIL Index = 80
+Corrected code: NEXT Index
+
+The original code uses the UNTIL keyword, which is not appropriate for a FOR loop. The corrected code uses the NEXT keyword to increment the loop counter, Index.
+
+Error in line 10:
+Incorrect code: PRINT Index
+Corrected code: PRINT Count
+
+The original code prints the value of Index, which is not the desired output. The corrected code prints the value of Count, which is the number of values larger than 500.
+
+7)
+Minterms 
+a) AB'C'
+b) ABC
+
+Sum of Products (SoP):
+X = ((AB').C') + ((AB).C)
+
+b)
+X = 1, IF((A AND NOT B) AND NOT C)
+                  OR
+         ((A AND B) AND C)
+
+10)
+I will provide the value of each variable after executing the corresponding pseudocode statement:
+
+01. P ← "Computer Science"
+P ← "Computer Science"
+
+02. Q ← LENGTH(P)
+Q ← 16 (length of the string "Computer Science")
+
+03. R ← SUBSTRING(P, 10, 7)
+R ← "Science" (substring of P starting at position 10 and 7 characters long)
+
+04. S ← LENGTH(R)
+S ← 7 (length of the string "Science")
+
+05. T ← SUBSTRING(R, 1, 3)
+T ← "Sci" (substring of R starting at position 1 and 3 characters long)
+
+7b)
+To extract the word "Computer" from the variable P and store it in the variable F, you can use the SUBSTRING function. Since "Computer" starts at position 1 and is 8 characters long, the pseudocode statement would be:
+F ← SUBSTRING(P, 1, 8)
+-------------------------------
+11c)
+The SQL statement provided selects the Date and Title from the PERFORMANCE table where the performance is not sold out (SoldOut is "No") and the performance Type is "Jazz". Based on the table data provided, the output of this query would be:
+
+Date	Title
+03 Nov	Acoustic Evening
+The Acoustic Evening performance on 03 Nov is the only Jazz performance that is not sold out.
+
+----------------------------
+12)
+(a) Rewrite this pseudocode algorithm using a WHILE … DO … ENDWHILE loop.
+B ← FALSE
+INPUT Num
+FOR Counter ← 1 TO 12
+   IF A[Counter] = Num
+     THEN
+       B ← TRUE
+   ENDIF
+NEXT Counter
+
+To rewrite the given pseudocode algorithm using a WHILE loop instead of a FOR loop, you can use a separate variable as a loop counter and update it manually inside the loop. Here's the rewritten pseudocode using a WHILE ... DO ... ENDWHILE loop:
+B ← FALSE
+INPUT Num
+Counter ← 1
+WHILE Counter <= 12 DO
+    IF A[Counter] = Num THEN
+        B ← TRUE
+    ENDIF
+    Counter ← Counter + 1
+ENDWHILE
+
+b)
+The purpose of the algorithm in (a) is to search for a specific number (Num) in an array A of 12 elements. The variable B is used as a boolean flag to indicate if the number is found in the array. If the number is found in the array, the algorithm sets B to TRUE; otherwise, B remains FALSE.
+
+c)
+A WHILE ... DO ... ENDWHILE loop and a REPEAT ... UNTIL loop are both used to execute a block of code repeatedly based on a specific condition. However, they have some differences in their structure and execution:
+
+WHILE ... DO ... ENDWHILE loop:
+The loop condition is checked at the beginning of the loop, before the block of code is executed.
+If the condition is false initially, the loop body will not execute at all.
+The loop will continue to execute as long as the condition remains true.
+
+REPEAT ... UNTIL loop:
+The loop condition is checked at the end of the loop, after the block of code has been executed.
+This means that the loop body is always executed at least once, regardless of the initial condition.
+The loop will continue to execute as long as the condition is false, and it stops once the condition becomes true.
+
+In summary, the main difference between a WHILE ... DO ... ENDWHILE loop and a REPEAT ... UNTIL loop is when the loop condition is checked and the execution flow based on the condition. The WHILE loop checks the condition before executing the loop body and continues as long as the condition is true, while the REPEAT ... UNTIL loop checks the condition after executing the loop body and continues as long as the condition is false.
+
+---------------------------------------
+13)
+PROCEDURE CheckPatientReadings(hospitalNumber : INTEGER)
+    //DECLARE Variables
+    DECLARE patientName : STRING
+    DECLARE temperature, pulse : REAL
+    DECLARE temperatureInRange, pulseInRange : BOOLEAN
+
+    //INITIALISE
+    patientName ← = ""
+    temperature ← = 0
+    pulse ← 0
+    temperatureInRange ← FALSE
+    pulseInRange ← FALSE
+
+    // Check if the hospital number is valid
+    IF hospitalNumber < 1 OR hospitalNumber > 1000 THEN
+        OUTPUT "Error: Invalid hospital number"
+        EXIT PROCEDURE
+    ENDIF
+
+    // Get the patient's name and readings
+    patientName ← Patient[hospitalNumber]
+    temperature ← Readings[hospitalNumber, 1]
+    pulse ← Readings[hospitalNumber, 2]
+
+    // Check if the temperature and pulse readings are within the valid range
+    IF (temperature >= 31.6) AND (temperature <= 37.2) THEN temperatureInRange ← TRUE
+    IF (pulse >= 55.0) AND (pulse <= 100.0) THEN pulseInRange ← TRUE
+
+    // Output the patient's name
+    OUTPUT "Patient Name: ", patientName
+
+    // Determine and output the appropriate message based on the readings
+    IF temperatureInRange = TRUE AND pulseInRange = TRUE THEN
+        OUTPUT "Normal readings"
+    ELSEIF temperatureInRange = TRUE OR pulseInRange = TRUE THEN
+        OUTPUT "Warning"
+        IF temperatureInRange = TRUE THEN
+            OUTPUT "Temperature"
+        ELSE
+            OUTPUT "Pulse"
+        ENDIF
+    ELSE
+        OUTPUT "Severe warning: Pulse and temperature"
+    ENDIF
+
+    // Exit the procedure
+ENDPROCEDURE
+
+Explanation: This procedure checks if the provided hospital number is valid, retrieves the patient's name and readings from the Patient and Readings arrays, and determines the appropriate message to output based on whether the temperature and pulse readings are within the specified range.
