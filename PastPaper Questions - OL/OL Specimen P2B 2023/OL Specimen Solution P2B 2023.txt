@@ -59,7 +59,7 @@ REPEAT
    If Number < 0 THEN negativeCount ← negativeCount + 1
 UNTIL Number = 0
 OUPUT "Positive count = ", positiveCount 
-OUPUT "Negative count = ", negtiveCount 
+OUPUT "Negative count = ", negativeCount 
 
 6)
 Here are the lines of code containing errors and their corrected versions:
@@ -180,8 +180,8 @@ PROCEDURE CheckPatientReadings(hospitalNumber : INTEGER)
     DECLARE temperatureInRange, pulseInRange : BOOLEAN
 
     //INITIALISE
-    patientName ← = ""
-    temperature ← = 0
+    patientName ← ""
+    temperature ← 0
     pulse ← 0
     temperatureInRange ← FALSE
     pulseInRange ← FALSE
@@ -209,7 +209,7 @@ PROCEDURE CheckPatientReadings(hospitalNumber : INTEGER)
         OUTPUT "Normal readings"
     ELSEIF temperatureInRange = TRUE OR pulseInRange = TRUE THEN
         OUTPUT "Warning"
-        IF temperatureInRange = TRUE THEN
+        IF temperatureInRange = FALSE THEN
             OUTPUT "Temperature"
         ELSE
             OUTPUT "Pulse"
