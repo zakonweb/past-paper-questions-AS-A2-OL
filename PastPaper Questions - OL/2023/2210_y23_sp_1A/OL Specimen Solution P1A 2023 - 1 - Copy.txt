@@ -1,0 +1,201 @@
+To convert the hexadecimal digits to binary, we need to follow these steps:
+
+Convert each hexadecimal digit to its 4-bit binary equivalent.
+Combine the binary equivalents to form the 8-bit register.
+Let's convert the given hexadecimal pairs to binary:
+
+97:
+Q1(a)
+9 in hexadecimal = 1001 in binary
+7 in hexadecimal = 0111 in binary
+So, 97 in binary = 10010111
+
+5C:
+5 in hexadecimal = 0101 in binary
+C in hexadecimal = 1100 in binary
+So, 5C in binary = 01011100
+
+Therefore, the 8-bit registers for the given pairs of digits are:
+97 = 10010111
+5C = 01011100
+
+Q1(b)
+A MAC (Media Access Control) address is a unique identifier assigned to network interfaces for communications on the physical network segment. It is a 48-bit (6-byte) hexadecimal number, typically represented as six pairs of characters separated by colons (e.g., 01:23:45:67:89:AB). The MAC address is used for various network technologies, such as Ethernet, Wi-Fi, and Bluetooth, to uniquely identify devices on a local area network (LAN).
+
+MAC addresses are assigned by the manufacturer of the network interface controller (NIC) and are stored in the hardware, specifically in the NIC's read-only memory. The first half (24 bits) of the MAC address represents the Organizationally Unique Identifier (OUI), which identifies the manufacturer, while the second half (24 bits) is the serial number assigned to the specific device by the manufacturer.
+
+MAC addresses are crucial for ensuring proper functioning and management of data traffic on a network. They enable devices to send and receive data on the network by acting as source and destination addresses in data frames (data packets over a LAN). In contrast to IP addresses, which operate at the network layer and can change as a device moves from one network to another, MAC addresses are tied to the hardware and are generally static.
+
+M/S:
+Any four from:
+• used to identify a device
+• it is a unique (address)
+• it is a static address // it does not change
+• it is set by the manufacturer
+• the first part is the manufacturer ID / number / identifies the manufacturer
+• the second part is the serial number / ID.
+
+1(c)
+M/S
+Any two from:
+• colour codes // colour in HTML/CSS
+• error messages
+• locations in memory
+• memory dump // debugging
+• IP(v6) address
+• ASCII // Unicode
+• assembly language
+• URL.
+
+In computer science, hexadecimal (base-16) is widely used due to its efficiency in representing large binary numbers in a more compact and human-readable format. Apart from representing memory addresses and RGB color codes, two other common uses of hexadecimal in computer science are:
+
+Encoding binary data in textual formats: Hexadecimal is often used to represent binary data in textual formats like Base16 encoding, which is a method of converting binary data into a human-readable string of characters. Each hexadecimal digit represents four bits (a nibble) of binary data, making it easier to work with large binary values. This is commonly used for debugging purposes, data storage, and data transmission in systems where text-based representations are preferred.
+
+Cryptography and hashing: In cryptography and security applications, hexadecimal representation is used for displaying the output of cryptographic hash functions (e.g., MD5, SHA-1, SHA-256). These functions generate fixed-length binary outputs (hashes) that are typically represented as hexadecimal strings to make them easier to read, compare, and store. The use of hexadecimal in this context helps with the efficient handling of large hash values and secure communication between systems.
+
+1(d)
+(i) After performing a logical left shift of two places on the binary value, the register will contain:
+01001000
+(ii) The value becomes incorrect because the left most bits are lost.
+
+1(e)
+To represent the negative denary number -54 as binary using two's complement, follow these steps:
+1: Convert the positive 54 into binary: 00110110
+2: Starting from the right in binary to the first 1 keep bits same and ctoggle the rest: 11001010
+
+Q2
+M/S
+(a) Any four from:
+• it has a header
+• … that contains the destination address
+• … that contains the packet number
+• … that contains the originator’s address
+• it has a payload
+• it has a trailer.
+
+A data packet is a fundamental unit of information transmitted over a network. Data packets are used to carry and deliver data efficiently across the internet or other networks. The structure of a data packet typically consists of the following components:
+
+Header: The header contains essential information about the packet, such as the source and destination IP addresses, protocol being used (e.g., TCP, UDP), packet length, and other control information. Headers may also include information about the sequence number, which helps to reassemble the packets in the correct order at the destination, and a time-to-live (TTL) value to prevent packets from circulating indefinitely in the network.
+
+Payload: The payload is the actual data being transmitted from the source to the destination. It may contain parts of a file, website data, or any other information that the user is trying to access. The size of the payload may vary depending on the specific protocol, network configuration, or the type of data being transmitted.
+
+Trailer: The trailer is a small section at the end of the data packet that helps ensure the integrity of the transmitted data. It often contains error-checking information, such as a checksum or cyclic redundancy check (CRC), which allows the receiving device to verify that the data has not been corrupted during transmission. If the receiver detects an error in the packet, it may request retransmission of the packet or discard it, depending on the protocol being used.
+
+In summary, a data packet has a structure that includes a header with control information and addressing, a payload containing the actual data, and a trailer for error-checking purposes. This structure allows for efficient and reliable transmission of data across networks.
+
+(b) 
+(i) C Less storage space on the web server is required.
+(ii) Lossy and Lossless
+
+Lossy Compression: This method of compression removes some data from the original file to reduce its size. This often results in a loss of quality, but it can lead to significant reductions in file size. Examples of lossy video compression formats include jpg, mp3, mp4, gif etc.
+
+Lossless Compression: This method of compression preserves all the original data, ensuring no loss of quality. The reduction in file size is generally not as significant as with lossy compression, but the original video quality is maintained. Examples of lossless video compression formats include RLE.
+
+(iii) M/S
+Any four from:
+• parallel would allow fastest transmission
+• … of the large amount of data
+• data can be uploaded and downloaded …
+• … but this does not have to be at the same time
+• data is not required to travel a long distance
+• … therefore skewing is not a problem.
+
+(c)
+(i)
+M/S
+Any four from:
+• multiple computers are used as bots
+• designed to deny people access to a website
+• a large number / numerous requests are sent (to a server) …
+• … all at the same time
+• the server is unable to respond / struggles to respond to all the requests
+• the server fails / times out as a result.
+
+A Distributed Denial of Service (DDoS) attack is a malicious attempt to disrupt the normal functioning of a targeted server, network, or online service by overwhelming it with a flood of fake or illegitimate internet traffic. In a DDoS attack, multiple compromised systems, often referred to as a botnet, are used to generate a massive volume of traffic directed towards the target.
+
+The primary goal of a DDoS attack is to render the targeted system or service unavailable or inaccessible to its intended users. This can cause downtime, loss of revenue, and damage to the target's reputation. DDoS attacks are difficult to prevent and mitigate due to the distributed nature of the attack sources, making it challenging to identify and block the incoming traffic.
+
+(ii) Firewalls
+One security device that can be used to help prevent a DDoS attack is a Firewall. A Firewall can help protect your network by filtering out malicious traffic and blocking requests from known malicious IP addresses. It can also detect and mitigate DDoS attacks by analyzing traffic patterns and identifying unusual or suspicious activity, thereby minimizing the impact of an attack on your network and resources.
+
+Q3
+(a) M/S
+Any three from:
+• consists of values between 0–255 / 0–FFF
+• values are separated by full stops / colons
+• it is a unique address
+• can be static or dynamic
+• can be public or private
+• can be IPv4 / have four groups of digits
+• can be IPv6 / have eight groups of digits
+• in IPv6 :: can replace groups of zeros.
+
+(i) Three characteristics of an IP address are:
+
+Uniqueness: Each IP address is unique within its network scope, which means that no two devices within the same network should have the same IP address. This ensures that data packets can be accurately routed between devices on a network.
+
+Format: IP addresses are represented in two formats: IPv4 and IPv6. IPv4 addresses consist of four sets of numbers separated by periods (e.g., 192.168.1.1), while IPv6 addresses consist of eight sets of four hexadecimal characters separated by colons (e.g., 2001:0db8:85a3:0000:0000:8a2e:0370:7334).
+
+Public vs. Private: IP addresses can be categorized as public or private. Public IP addresses are globally unique and can be accessed over the internet, while private IP addresses are reserved for use within private networks, such as home or office networks, and cannot be directly accessed from the internet. 
+
+(ii) Router
+The network component that uses the IP address to send data only to its correct destination is a router. Routers are responsible for forwarding data packets between different networks and ensuring that they reach the appropriate destination based on their IP addresses. They do this by examining the destination IP address of each data packet and using routing tables to determine the best path for the packet to travel across the network.
+
+(b)
+URL sections Name
+
+Scheme/Protocol: https
+Domain Name: cambridgeassessment.org.uk
+Path: /index.html
+
+Q4
+(a)
+accumulator (ACC) ✔️
+memory address register (MAR) ✔️
+program counter (PC) ✔️
+
+(b)
+M/S
+Any two from:
+• It sends control signals
+• … that manage the transfer of data and instructions within the CPU
+• It decodes an instruction
+• … using an instruction set
+
+The control unit (CU) is a critical component within a computer's central processing unit (CPU). Its primary purpose is to coordinate and manage the execution of instructions and data flow within the computer system. It does this by interpreting instructions fetched from memory, generating control signals, and directing the operation of other components like the arithmetic logic unit (ALU), registers, and memory.
+
+The CU ensures the smooth functioning of the CPU by performing the following tasks:
+
+Instruction fetching: The CU retrieves instructions from the computer's memory to be executed by the CPU.
+
+Instruction decoding: The CU interprets the instructions and determines what operation needs to be performed.
+
+Control signal generation: Based on the decoded instructions, the CU generates appropriate control signals to manage the flow of data and direct the CPU's components.
+
+Execution control: The CU oversees the execution of instructions, managing the sequencing and timing of operations within the CPU.
+
+Register and memory management: The CU controls the allocation and access of registers and memory during the execution process.
+
+In summary, the control unit plays a crucial role in ensuring the efficient operation of a computer by coordinating the execution of instructions and managing data flow within the system.
+
+(c)
+(i) One purpose of a core in a CPU is to execute instructions and perform calculations for the computer system. A core is an independent processing unit within the CPU that can fetch, decode, and execute instructions, as well as perform arithmetic and logical operations. This allows the computer to carry out tasks and run programs efficiently.
+
+(ii)
+M/S
+• It can now process two instructions simultaneously (where suitable)
+• … increasing the performance.
+
+Upgrading from a single-core to a dual-core CPU can significantly improve the performance of a computer in several ways:
+
+Parallel processing: A dual-core CPU has two independent processing units, or cores, which can execute instructions simultaneously. This enables the computer to process multiple tasks concurrently, improving overall system performance and responsiveness.
+
+Multi-tasking: Dual-core CPUs can handle multiple applications or processes running at the same time more efficiently. Each core can be allocated to a different task, reducing the likelihood of performance bottlenecks and providing a smoother user experience.
+
+Improved resource utilization: With two cores, the CPU can better distribute workloads and utilize system resources more effectively. This can lead to faster completion of tasks and improved performance in demanding applications like video editing or 3D rendering.
+
+Reduced heat and power consumption: Dual-core CPUs can sometimes consume less power and generate less heat compared to single-core CPUs when performing the same tasks, as the workload is distributed across two cores. This can result in a cooler and more energy-efficient system.
+
+It is important to note that the performance improvements from upgrading to a dual-core CPU depend on the nature of the tasks being performed and the ability of the software to take advantage of multiple cores. For applications that are not optimized for multi-core processing or for tasks that are primarily single-threaded, the performance gains might be less noticeable.
+
+(d) firmware

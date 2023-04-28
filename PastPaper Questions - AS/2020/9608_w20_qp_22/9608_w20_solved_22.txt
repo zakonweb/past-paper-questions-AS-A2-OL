@@ -1,0 +1,404 @@
+Q1
+(a)
+Process
+Output
+
+(b)
+M/S
+They all represent:
+• A solution to a problem / a way to perform a task
+• Expressed as a sequence / series of steps / stages / instructions
+
+
+A program designer represents the logic, structure, and flow of an algorithm using one or more of these methods. Each method serves as a means to communicate the design, steps, and decision-making processes involved in the algorithm, making it easier for others to understand, implement, or modify the code.
+
+Structured English: In this method, the designer uses simple, clear English statements along with some basic programming constructs like loops, conditions, and sequencing to describe the algorithm. It helps in conveying the logic and steps of the algorithm in a human-readable format that is easy to understand, especially for non-programmers.
+
+Program Flowchart: A flowchart is a visual representation of an algorithm, using standard symbols to represent different types of actions or steps, such as process, decision, and input/output. Arrows are used to show the flow of control between these steps. Flowcharts help to communicate the overall structure, decision-making points, and order of execution of an algorithm, making it easier to visualize and analyze.
+
+Pseudocode: Pseudocode is a method that combines the simplicity of structured English with some syntax resembling programming languages. It provides a more formal and detailed representation of the algorithm, using constructs like loops, conditions, and variables. Pseudocode helps programmers understand the logic and flow of the algorithm more effectively, and it can be easily translated into actual code during the implementation phase.
+
+(c)
+Data Type	Example Data Value
+Integer		42
+Real		3.14159
+Boolean		TRUE
+String		"Hello, world!"
+
+(e)
+Expression: NOT FlagB AND FlagC
+Evaluation: NOT FALSE AND TRUE
+Result: TRUE AND TRUE
+Evaluates to: TRUE
+
+Expression: NOT (FlagB OR FlagC)
+Evaluation: NOT (FALSE OR TRUE)
+Result: NOT TRUE
+Evaluates to: FALSE
+
+Expression: (FlagA AND FlagB) OR FlagC
+Evaluation: (TRUE AND FALSE) OR TRUE
+Result: FALSE OR TRUE
+Evaluates to: TRUE
+
+Expression: NOT (FlagA AND FlagB) OR NOT FlagC
+Evaluation: NOT (TRUE AND FALSE) OR NOT TRUE
+Result: NOT FALSE OR FALSE
+Evaluates to: TRUE OR FALSE
+Evaluates to: TRUE
+
+Q2
+(a)
+pseudocode for the amended algorithm that takes three unique numbers as input and outputs the average and the largest value:
+
+DECLARE A, B, C, LARGEST : INTEGER
+DECLARE AVERAGE : REAL
+
+REPEAT
+   INPUT A
+   INPUT B
+   INPUT C
+UNTIL (A <> B) AND (A <> C) AND (B <> C)
+
+AVERAGE = (A + B + C) / 3
+
+IF A > B AND A > C THEN
+    LARGEST = A
+ELSEIF B > A AND B > C THEN
+    LARGEST = B
+ELSE
+    LARGEST = C
+ENDIF
+
+OUTPUT "The average is: ", AVERAGE
+OUTPUT "The largest value is: ", LARGEST
+
+(b)
+"ALARM: " & RIGHT("Time: 1202",4) 	"ALARM: 1202"
+MID("Stepwise.",5, 4) 			"wise"
+1.5 * LENGTH("OnePointFive") 		18
+NUM_TO_STRING(27.5) 			"27.5"
+DIV(9, 4) 				2
+
+(c)
+Decomposing a problem into sub-tasks when designing an algorithm offers several benefits:
+
+Modularity: Breaking a problem down into smaller, more manageable sub-tasks allows for a modular design. This modularity makes it easier to understand, develop, and maintain the algorithm. Each sub-task can be worked on independently, allowing developers to focus on one aspect of the problem at a time.
+
+Reusability: Sub-tasks often encapsulate specific functionality that can be reused in other parts of the algorithm or in different projects. By developing these smaller components, it becomes easier to share and reuse code, ultimately reducing development time and effort.
+
+Easier debugging and testing: With a problem divided into smaller sub-tasks, it is simpler to isolate and identify issues within the algorithm. Each sub-task can be individually tested and verified, which allows for more effective debugging and increased overall reliability of the algorithm.
+
+Q3.
+(a)
+FUNCTION CheckSkid() RETURNS BOOLEAN
+    DECLARE wheel1, wheel2, wheel3, wheel4 : INTEGER 
+    DECLARE average : REAL
+    DECLARE isSkidding : BOOLEAN
+
+    REPEAT
+        OUTPUT "Enter the rate of rotation for wheel 1 (0-1000):"
+        INPUT wheel1
+    UNTIL wheel1 >= 0 AND wheel1 <=1000
+
+    OUTPUT "Enter the rate of rotation for wheel 2 (0-1000):"
+    INPUT wheel2
+
+    OUTPUT "Enter the rate of rotation for wheel 3 (0-1000):"
+    INPUT wheel3
+
+    OUTPUT "Enter the rate of rotation for wheel 4 (0-1000):"
+    INPUT wheel4
+
+    average = (wheel1 + wheel2 + wheel3 + wheel4) / 4
+
+    isSkidding = FALSE //FLAG
+    //
+    //FOR EACH wheel IN [wheel1, wheel2, wheel3, wheel4]
+    //    IF wheel > (average * 1.1) OR wheel < (average * 0.9) THEN
+    //        isSkidding = TRUE
+    //        BREAK
+    //    END IF
+    //NEXT
+    IF wheel1 > (average * 1.1) OR wheel1 < (average * 0.9) THEN
+        isSkidding = TRUE
+    ELSEIF wheel2 > (average * 1.1) OR wheel2 < (average * 0.9) THEN
+        isSkidding = TRUE
+    ELSEIF wheel3 > (average * 1.1) OR wheel1 3 (average * 0.9) THEN
+        isSkidding = TRUE
+    ELSEIF wheel4 > (average * 1.1) OR wheel4 < (average * 0.9) THEN
+        isSkidding = TRUE
+    END IF
+    
+    IF isSkidding + TRUE THEN
+        OUTPUT "Warning: The car is skidding!"
+    ELSE
+        OUTPUT "The car is not skidding."
+    END IF
+
+    RETURN isSkidding
+END FUNCTION
+
+--------------------------
+
+FUNCTION CheckSkid() RETURNS BOOLEAN
+    DECLARE INTEGER wheel1, wheel2, wheel3, wheel4
+    DECLARE INTEGER average
+    DECLARE BOOLEAN isSkidding
+
+    DO
+        OUTPUT "Enter the rate of rotation for wheel 1 (0-1000):"
+        INPUT wheel1
+    WHILE wheel1 < 0 OR wheel1 > 1000
+
+    DO
+        OUTPUT "Enter the rate of rotation for wheel 2 (0-1000):"
+        INPUT wheel2
+    WHILE wheel2 < 0 OR wheel2 > 1000
+
+    DO
+        OUTPUT "Enter the rate of rotation for wheel 3 (0-1000):"
+        INPUT wheel3
+    WHILE wheel3 < 0 OR wheel3 > 1000
+
+    DO
+        OUTPUT "Enter the rate of rotation for wheel 4 (0-1000):"
+        INPUT wheel4
+    WHILE wheel4 < 0 OR wheel4 > 1000
+
+    average = (wheel1 + wheel2 + wheel3 + wheel4) / 4
+
+    isSkidding = FALSE
+    FOR EACH wheel IN [wheel1, wheel2, wheel3, wheel4]
+        IF wheel > (average * 1.1) OR wheel < (average * 0.9) THEN
+            isSkidding = TRUE
+            BREAK
+        END IF
+    END FOR
+
+    IF isSkidding THEN
+        OUTPUT "Warning: The car is skidding!"
+    ELSE
+        OUTPUT "The car is not skidding."
+    END IF
+
+    RETURN isSkidding
+END FUNCTION
+-------------------------------
+(b)
+Two sets of test data that can be used to test the CheckSkid() function:
+
+Test 1 - No skid detected:
+Value1 = 600
+Value2 = 550
+Value3 = 650
+Value4 = 620
+
+In this test, the average of the four values is 605. If we apply the check for skidding, no individual value exceeds the 10% range from the average (i.e. no value is more than 10% greater or 10% less than the average), so the function should return FALSE and output "The car is not skidding."
+
+Test 2 - Skid detected:
+Value1 = 800
+Value2 = 500
+Value3 = 700
+Value4 = 750
+
+In this test, the average of the four values is 687.5. If we apply the check for skidding, the second wheel's value (500) is less than the 10% range from the average (i.e. less than 618.75), so the function should return TRUE and output "Warning: The car is skidding!"
+-----------------------------
+
+Q4
+(a)
+
+DECLARE OddCount : INTEGER 
+oddCount ← 0
+DECLARE EvenCount  : INTEGER
+evenCount ← 0
+DECLARE in  : INTEGER 
+in ← 0
+
+WHILE TRUE DO
+    OUTPUT "Enter an integer (0-9):"
+    INPUT in
+
+    IF in < 0 OR in > 9 THEN
+        EXIT WHILE
+    END IF
+
+    IF in MOD 2 = 0 THEN
+        EvenCount = EvenCount + 1
+    ELSE
+        OddCount = OddCount + 1
+    END IF
+ENDWHILE
+
+IF OddCount = EvenCount THEN
+    OUTPUT "Same"
+ELSEIF OddCount > EvenCount THEN
+    OUTPUT "Odd"
+ELSE
+    OUTPUT "Even"
+END IF
+
+(b) i
+String1	String2	Len1	RetFlag	x	Len2	NextChar	New	y
+"SUB"	"BUS"	3	TRUE	1	3	"S"		""	-
+"SUB"	"BUS"	3	TRUE	2	2	"U"		"B"	1
+"SUB"	"US"	3	TRUE	3	1	"B"		"U"	1
+"SUB"	"S"	3	FALSE	-	0	-		-	-
+The final value of the RetFlag is FALSE, which means that the function returns FALSE. This indicates that the two input strings do not consist of identical characters.
+
+(ii)
+Based on the trace table provided in the question, the final value of the variable RetFlag is FALSE. Therefore, the function Compare("SUB", "BUS") returns FALSE. This indicates that the two input strings "SUB" and "BUS" do not consist of identical characters.
+
+(iii)
+M/S
+One mark for explanation of problem, one mark for test strings
+Problem:
+• The inner FOR loop removes ALL characters from String2 that match the current character from String1 and not just one instance
+
+Test Strings:
+• ‘SAME’ and ‘MASS’ (for example)
+
+
+The function Compare is attempting to check whether two equal-length strings consist of identical characters. The function compares each character of the first string to the corresponding character of the second string. If a character does not match, the function removes it from the second string, then proceeds to compare the next character of the first string with the remaining characters of the second string. At the end of the comparison, if there are any characters remaining in the second string, the function returns FALSE, indicating that the two input strings do not consist of identical characters.
+
+One potential problem with this approach is that the function modifies the second string, replacing it with a modified version that may not accurately reflect the original string. If the input strings are passed by reference (i.e., as pointers to the actual string objects in memory), this modification will persist beyond the function call and may affect other parts of the program.
+
+Another problem with this approach is that the function does not handle situations where the input strings are not the same length. In this case, the function may compare characters beyond the end of one of the strings, which can lead to errors or unexpected behavior.
+
+Here are two test cases that could demonstrate the problems with this function:
+
+Test Case 1:
+String1 = "hello"
+String2 = "hallo"
+Expected output: FALSE
+
+Explanation: The strings have different characters in the second position, so the function removes the 'a' from String2. However, this means that the comparison of the third character of String1 with the third character of the modified String2 is not valid, since the modified String2 is now shorter than String1. This could lead to an error or unexpected output.
+
+Test Case 2:
+String1 = "hello"
+String2 = "hallo"
+Expected output: TRUE
+
+Explanation: If the input strings are passed by reference, the modification of String2 within the function will persist beyond the function call and affect the value of String2 in the calling code. If another part of the program relies on the original value of String2, this could lead to errors or unexpected behavior.
+
+(iv)
+The Compare function attempts to check whether two equal-length strings consist of identical characters. However, it has a problem in that it modifies the value of the String2 parameter during the execution of the function. This means that if the function is called with String2 as a reference parameter, the original value of String2 will be lost and replaced with a modified version. This can lead to unexpected behavior and incorrect results in other parts of the program.
+
+To correct this error, the function should make a copy of String2 at the beginning of the function and use the copy for comparison purposes. This will ensure that the original value of String2 is not modified and can be used after the function call if needed.
+
+Here is an updated version of the Compare function that makes a copy of String2 at the beginning:
+
+FUNCTION Compare(String1, String2 : STRING) RETURNS BOOLEAN
+
+DECLARE x, y, Len1, Len2 : INTEGER
+DECLARE RetFlag : BOOLEAN
+DECLARE NextChar : CHAR
+DECLARE New, String2Copy : STRING
+
+Len1 ← LENGTH(String1)
+String2Copy ← String2 // make a copy of String2
+RetFlag ← TRUE
+FOR x ← 1 TO Len1 // for each char in String1
+  Len2 ← LENGTH(String2Copy)
+  NextChar ← MID(String1, x, 1) // get NextChar from String1
+  
+  New ← ""
+  FOR y ← 1 TO Len2 // for each char in String2Copy
+    IF NextChar <> MID(String2Copy, y, 1) // no match
+      THEN
+        New ← New & MID(String2Copy, y, 1) // save this char from String2Copy
+    ENDIF
+  NEXT
+
+  String2Copy ← New // replace String2Copy with New
+NEXT
+
+IF LENGTH(String2Copy) <> 0 // anything left in String2Copy ?
+  THEN
+    RetFlag FALSE
+ENDIF
+
+RETURN RetFlag
+ENDFUNCTION
+
+(v)
+Dry run/ White box 
+
+Q5.
+(a)
+PROCEDURE InitArrays()
+    FOR i ← 0 to 9999
+        TagString[i] ← ""
+        TagCount[i] ← 0
+    NEXT
+ENDPROCEDURE
+
+This module uses a loop to iterate over all 10,000 elements of the TagString and TagCount arrays, setting each element to an initial value. For TagString, the initial value is an empty string, and for TagCount, the initial value is 0. This ensures that the arrays are ready to be used by the monitoring program.
+
+(b)
+FUNCTION SaveArrays() RETURNS INTEGER
+  FILEOPEN "Backup.txt" FOR WRITE
+  DECLARE UnUsed, i : INTEGER
+
+  UnUsed ← 0
+  i ← 0
+
+  FOR i ← 0 TO 9999
+     IF TagString <> "" THEN
+        WRITEFILE "Backup.txt", TagString[i] & ", " & TagCount[i]
+     ELSE
+        UnUsed ← UnUsed + 1
+     ENDIF
+  NEXT
+  CLOSEFILE "Backup.txt"
+  RETURN unUsed
+ENDFUNCTION
+
+This module saves the contents of the TagString and TagCount arrays to a text file, Backup.txt. It also returns the number of unused elements in the TagString array.
+
+The module first opens the Backup.txt file for output, which overwrites any existing file contents. It then sets a counter for the number of unused elements to zero.
+
+The module then iterates over all 10,000 elements of the TagString and TagCount arrays. For each element that is not an empty string, it writes the corresponding hashtag and count to the file in the format specified. If an element is an empty string, it increments the unused element counter.
+
+After writing all non-empty elements to the file, the module closes the file and returns the unused element counter.
+
+(c)
+FUNCTION LoadArrays() RETURNS INTEGER
+   OPENFILE "Backup.txt" FOR READ
+   DECLARE ArrayIndex : INTEGER
+   DECLARE line : STRING
+   ArrayIndex ← 0
+
+   WHILE NOT EOF("Backup.txt") DO
+     READFILE "Backup.txt", line
+     hashtag = ""
+     count = 0
+     FOR i = 1 TO LENGTH(line)
+       thisChar = MID(line, i, 1)
+       IF thisChar = ',' THEN EXIT FOR
+       hashtag ← hashtag & thisChar
+     NEXT
+     TagString[ArrayIndex] ← hashtag
+     CountLen ← LENGTH(line) - LENGTH(hashtag) - 1
+     Count ← STR_TO_NUM(RIGHT(line, CountLen)) // count
+     TagCount[ArrayIndex] ← Count
+     
+     ArrayIndex ← ArrayIndex + 1
+   ENDWHILE
+   CLOSEFILE "Backup.txt"     
+   
+   RETURN ArrayIndex
+ENDFUNCTION
+
+
+This module loads the contents of the Backup.txt file into the TagString and TagCount arrays. It also returns the number of elements that were successfully loaded.
+
+The module first opens the Backup.txt file for input. It then sets a counter for the number of elements to be loaded to zero.
+
+The module then loops through each line of the file using a WHILE loop, stopping when it reaches the end of the file or has loaded 10,000 elements. For each line, it reads the line from the file and initializes variables for the hashtag and count values.
+
+The module then loops through the characters in the line, starting from the second character, to extract the hashtag value. It does this by appending each alphanumeric character to the hashtag variable until it reaches the comma character.
+
+After extracting the hashtag value, the module then extracts the count value by looping through the characters in the line, starting from the character immediately after the comma. 
+
+Finally, the module sets the TagString and TagCount values for the current element, increments the element counter, and continues looping through the file until it reaches the end or the maximum number of elements has been loaded. The module then closes the file and returns the element counter.	    
