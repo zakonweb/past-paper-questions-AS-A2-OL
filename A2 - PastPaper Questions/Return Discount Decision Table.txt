@@ -1,0 +1,21 @@
+Function Discount(ByVal GoodsTotal AS Integer, ByVal HasDiscountCard AS Boolean) AS INTEGER
+DIM Disc AS Integer = 0
+IF GoodsTotal > 20 THEN
+   IF GoodsTotal > 100 THEN
+       IF HasDiscountCard = TRUE THEN
+           Disc = 10
+       ELSE
+           Disc = 5
+       ENDIF
+   ELSE
+       IF HasDiscountCard = TRUE THEN
+           Disc = 5
+       ELSE
+           Disc = 0
+       ENDIF
+    ENDIF
+ELSE
+    Disc = 0
+ENDIF
+Return Disc
+End Function
