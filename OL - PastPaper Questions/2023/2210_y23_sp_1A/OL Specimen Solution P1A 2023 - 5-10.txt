@@ -1,0 +1,79 @@
+Q5.
+(a) i.1
+M/S
+It is easier to debug
+It is easier to read
+It is quicker to understand
+The high level language code is portable
+
+Two advantages of using a high-level language instead of a low-level language for a programmer are:
+
+Abstraction and readability: High-level languages are designed to be more human-readable, using familiar constructs such as loops, conditionals, and functions. This makes it easier for programmers to write, understand, and maintain the code. Low-level languages, on the other hand, are closer to machine code and require a deeper understanding of computer architecture, which can make it more difficult to work with.
+
+Portability and platform independence: High-level languages are generally platform-independent, meaning that code written in a high-level language can be compiled or interpreted to run on different types of hardware and operating systems. In contrast, low-level languages like assembly are platform-specific, and code written in a low-level language typically needs to be rewritten or modified to run on different systems.
+
+(ii) 
+Can not be used to deal with the hardware directly
+We need to translate them so that could be utilised by the processor
+They will perform slow and not at optimum level
+
+(b) IDE is a software with all of the requirements to write code in HLL. Facilities available within the IDEs include (but not everytime) a source code editor, syntax highlighting, code completion, error detection, debugging tools, built-in compilers or interpreters etc.
+
+Q6.
+(a) 
+It is programmable
+It has got electromechanical and electrical components.
+
+(b)
+precision and consistency
+speed and efficiency
+
+Q7.
+(a)
+Any and all characters which are present over the keyboard and understood by a computer
+Each of the character is assigned a numerical value, called code point.
+E.g: ASCII, UNICODE
+
+(b)
+ASCII stores each character in 1 Byte, whereas UNICODE takes atleast 2 bytes per character
+
+Q8.
+(b)
+M/S
+To extend the physical RAM storage
+To make 3D modelling program use as much RAM required, instead of getting freezed or crashing
+To make more memory available for the requirements of 3D modelling program.
+
+Virtual memory is needed for the 3D modeling process because it allows the computer system to handle larger and more complex models than would be possible with just the physical memory (RAM) alone.
+
+3D modeling software often requires significant amounts of memory to store and manipulate large amounts of data, such as geometry, textures, and rendering information. When the physical memory becomes insufficient to hold all the data required by the 3D modeling process, the computer uses virtual memory as an extension of the physical memory.
+
+Virtual memory works by allocating a portion of the computer's hard disk (or other storage devices) to serve as additional memory space. The operating system manages this virtual memory by swapping data between the physical memory and the storage device, allowing the 3D modeling software to access more memory resources than would be available solely through RAM. This enables the student to work with larger and more complex models without running into performance issues or limitations imposed by the physical memory capacity.
+
+However, it is worth noting that accessing virtual memory is generally slower than accessing physical memory due to the slower read and write speeds of storage devices compared to RAM. As a result, relying heavily on virtual memory can lead to decreased performance in the 3D modeling process.
+
+Q9.
+M/S
+plain
+algorithm/key
+key/algorithm
+cipher
+understood
+
+The data before encryption is known as plain text.
+To scramble the data, an encryption algorithm, which is a type of cipher, is used.
+The data after encryption is known as cipher text.
+Encryption prevents the data from being understood by a hacker.
+
+Q10.
+M/S
+• SSL is a (security) protocol.
+• It encrypts any data that is sent.
+• It uses/sends digital certificates …
+• … which are sent to the (buyer’s/user’s) browser // requested by the (buyer’s/user’s) browser
+• … that contains the gallery’s public key
+• … that can be used to authenticate the gallery.
+• Once the certificate is authenticated, the transaction will begin.
+
+
+

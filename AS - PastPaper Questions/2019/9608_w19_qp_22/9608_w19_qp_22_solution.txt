@@ -1,0 +1,291 @@
+Q1.
+(a) (i) 
+Three features of the pseudocode that make it easier to read and understand are:
+
+Descriptive variable names: The use of meaningful variable names like "Tries" and "Full" helps convey the purpose of the variables, making the pseudocode easier to comprehend.
+
+Indentation: The consistent use of indentation to visually separate different levels of nested code blocks (such as IF, WHILE, and ENDIF) helps in understanding the structure and the flow of control within the pseudocode, making it more readable.
+
+Capitalization of keywords and statements: The capitalization of keywords (e.g., PROCEDURE, DECLARE, IF, WHILE, ENDWHILE, ENDIF, ENDPROCEDURE) and built-in functions (e.g., ReadSensor, TopUp, OUTPUT) makes them stand out from the rest of the code, allowing the reader to quickly identify the key elements of the pseudocode.
+
+(b) (i) Here are the suitable data types for each example value:
+Example value	Data type
+-------------	---------
+43		Integer
+TRUE		Boolean
+−273.16		REAL
+"−273.16"	String
+
+(ii) Evaluating each expression in the table:
+
+Expression				Evaluates to
+---------------				-------------
+RIGHT("Stop", 3) & LEFT("ich", 2)	"top" & "ic" -> "topic"
+MID(NUM_TO_STRING(2019), 3, 1)		MID("2019", 3, 1) -> "1"
+INT(NUM_TO_STRING(-273.16))		ERROR (INT requires a numeric input,
+					not a string)
+INT(13/2)				6 (Assuming integer division, 
+					13/2 = 6.5, and INT truncates the 
+					decimal part)
+
+Q2.
+(a)
+M/S
+1. The source code represents a solution / design / algorithm expressed in a
+high-level language
+2. The Object code is produced (by the compiler) during the translation stage
+// The Object code is produced by translating the source code (NOT
+produced by Interpreter)
+3. Corrective maintenance occurs when testing reveals a fault (or error) in the
+program and this is corrected // Corrective maintenance is when errors are
+found and fixed // Corrective maintenance is when a program is debugged
+
+----
+The program development cycle is a series of steps that a programmer follows to create, test, and maintain a software program. With reference to source code, object code, and corrective maintenance, the development cycle can be described as follows:
+
+Source code: The programmer writes the program's code in a high-level programming language, such as C, Java, or Python. This human-readable code is called the source code. It contains the logic, algorithms, and instructions that define how the program will function.
+
+Compilation: The source code needs to be translated into a machine-readable format, known as object code or machine code, for the program to be executed by a computer. This is done using a compiler or an assembler (for low-level languages), which checks the source code for syntax errors and converts it into a format that the computer can understand and execute.
+
+Linking: If the program consists of multiple source code files or requires external libraries, a linker combines the object code files and the required libraries into a single executable file. This file can then be run on a computer to perform the intended tasks.
+
+Testing: Once the executable file is generated, the program is tested for functionality, performance, and compatibility. Testers identify and report any issues, bugs, or errors in the software.
+
+Corrective maintenance: After identifying issues during the testing phase, programmers perform corrective maintenance by modifying the source code to fix the reported bugs and errors. The modified source code is then recompiled, linked, and tested again to ensure that the changes have resolved the issues and have not introduced any new ones. This process of fixing, recompiling, and testing may be repeated several times until the program is considered stable and reliable.
+
+Deployment and continuous maintenance: When the program is deemed ready for use, it is deployed to the target audience or end-users. After deployment, the program may still require ongoing maintenance to address any new issues, make improvements, or add new features. This continuous maintenance includes corrective maintenance to fix any bugs or errors that may be discovered by users during real-world use.
+
+The program development cycle is an iterative process, with each stage informing the next and often requiring revisiting previous stages to refine and improve the software.
+
+(b)
+M/S
+1. Dynamic syntax checking // Identification of syntax errors
+2. Highlighting undeclared variables // incorrect variable usage...
+3. Parameter checking
+4. Type checking
+5. Auto-indentation
+6. PrettyPrint
+
+Three features of an Integrated Development Environment (IDE) that can help with initial error detection while writing a program are:
+
+Syntax highlighting: IDEs often use syntax highlighting to display different elements of the code (such as keywords, variables, and comments) in distinct colors or font styles. This visual differentiation makes it easier for the programmer to spot syntax errors, such as missing brackets, incorrect keywords, or unclosed strings.
+
+Auto-completion and code suggestions: Many IDEs offer auto-completion and code suggestions as the programmer types, which can help prevent errors by automatically completing known keywords, function names, or variable names. This reduces the chances of making typographical mistakes or using incorrect syntax.
+
+Real-time error checking and linting: IDEs often include built-in error checking and linting tools that analyze the code as it is written, identifying and flagging potential issues such as syntax errors, unused variables, or incorrect function calls. These tools can also provide suggestions for fixing the detected issues, allowing the programmer to address errors in the early stages of development.
+
+Q3.
+(a, b)
+
+DECLARE InString : STRING
+DECLARE Result: ARRAY [0: 9] OF INTEGER
+DECLARE index : INTEGER
+DECLARE currentChar : CHARACTER
+DECLARE currentDigit : INTEGER
+
+// Initialize all elements of the Result array to zero
+FOR index ← 0 TO 9
+    Result[index] ← 0
+NEXT
+
+// Input the string of numeric digits
+INPUT "Enter the string of numeric digits: ", InString
+
+// Iterate through each character in the string
+FOR index ← 0 TO LENGTH(InString) - 1
+    currentChar = MID(InString, index, 1)
+    
+    // Check if the character is a numeric digit
+    IF currentChar >= '0' AND currentChar <= '9' THEN
+        currentDigit ← ASC(currentChar) - ASC('0')
+        
+        // Increment the count for the digit in the Result array
+        Result[currentDigit] ← Result[currentDigit] + 1
+    ENDIF
+NEXT
+
+// Output the count for each digit along with the corresponding digit
+FOR index ← 0 TO 9
+    OUTPUT "Digit ", index, " occurs ", Result[index], " times"
+NEXT
+
+Explanation:
+The given pseudocode performs the following steps to find the count of digits in a string:
+
+Declare a string variable 'InString' to store the input string and an integer array 'Result' with 10 elements to store the count of each digit from 0 to 9.
+
+Initialize all elements of the 'Result' array to zero.
+
+Ask the user to enter a string of numeric digits and store it in 'InString'.
+
+Go through each character in 'InString' one by one. For each character, check if it is a numeric digit (a character between '0' and '9').
+
+If the current character is a numeric digit, convert it to the corresponding integer value by subtracting the ASCII value of '0' from the ASCII value of the character. This gives you the digit as an integer (e.g., the character '5' would become the integer 5).
+
+Increase the count of the digit found in the 'Result' array. To do this, use the digit as an index for the 'Result' array and increment the value stored at that index.
+
+After going through all the characters in the string, the 'Result' array will have the count of each digit from 0 to 9.
+
+Finally, display the count of each digit along with the corresponding digit by iterating through the 'Result' array and printing the digit and its count.
+
+This program reads a string of numeric digits, counts the occurrences of each digit in the string, and then displays the count for each digit.
+
+Q4.
+(a)
+PROCEDURE Button(buttonValue : INTEGER)
+    DECLARE volumeChange : INTEGER
+
+    IF buttonValue = 10 THEN
+        volumeChange ← 1
+    ELSEIF buttonValue = 20 THEN
+        volumeChange ← -1
+    ELSE
+        EXIT PROCEDURE
+    ENDIF
+
+    VolLevel ← VolLevel + volumeChange
+
+    // Check if VolLevel is within the allowed range
+    IF VolLevel < 0 THEN
+        VolLevel ← 0
+    ELSEIF VolLevel > 49 THEN
+        VolLevel ← 49
+    ENDIF
+
+    // Check if MaxVol is set and if VolLevel exceeds the limit
+    IF MaxVol > 0 AND VolLevel > MaxVol THEN
+        VolLevel ← MaxVol
+    ENDIF
+
+ENDPROCEDURE
+-----------
+Explanation of the code:
+
+The given pseudocode is for a procedure called Button() that controls the volume of a portable music player. The procedure takes a parameter called buttonValue, which indicates whether the volume increase button (value 10) or the volume decrease button (value 20) has been pressed. Here's a plain English explanation of the code:
+
+Check the buttonValue to determine if the volume should be increased or decreased. If it is 10, set the volumeChange variable to 1 (increase the volume). If it is 20, set the volumeChange variable to -1 (decrease the volume). If the buttonValue is not 10 or 20, the procedure ends.
+
+Update the global variable VolLevel (current volume setting) by adding the volumeChange value to it.
+
+Make sure that the updated volume level (VolLevel) stays within the allowed range of 0 to 49. If the volume level is less than 0, set it to 0. If the volume level is greater than 49, set it to 49.
+
+Check if the global variable MaxVol (maximum volume limit) is set to a value greater than 0. If it is, and if the updated volume level (VolLevel) is greater than the maximum volume limit (MaxVol), set the volume level (VolLevel) to the maximum volume limit (MaxVol).
+
+The Button() procedure ensures that the volume level is adjusted according to the button pressed while staying within the allowed range and respecting any maximum volume limit set to protect the user's hearing.
+
+(b)
+TEST 1 – VolLevel is changed
+Parameter value: 10
+MaxVol: 0
+VolLevel value before call to Button(): 48
+VolLevel expected value after call to Button(): 49
+
+TEST 2 – VolLevel is not changed
+Parameter value: 10
+MaxVol: 34
+VolLevel value before call to Button(): 34
+VolLevel expected value after call to Button(): 34
+
+TEST 3 – VolLevel is not changed
+Parameter value: 20
+MaxVol: 40
+VolLevel value before call to Button(): 0
+VolLevel expected value after call to Button(): 0
+
+Commentry:
+----------
+These tests are examples of black-box testing for the Button() procedure, which means they are focused on the procedure's input-output behavior without considering the internal implementation. The tests are designed to ensure the procedure works as expected in different scenarios.
+
+TEST 1 - VolLevel is changed:
+This test checks if the volume increases when the volume increase button is pressed (parameter value 10). No maximum volume limit is set (MaxVol is 0). The initial volume level is 48. After calling Button(), the expected volume level is 49, which is a one-step increase as intended.
+
+TEST 2 - VolLevel is not changed:
+This test checks if the volume remains unchanged when the maximum volume limit is reached. The volume increase button is pressed (parameter value 10), and the maximum volume limit is set to 34 (MaxVol is 34). The initial volume level is already at the maximum limit (VolLevel is 34). After calling Button(), the expected volume level should still be 34, as the volume should not increase beyond the maximum limit.
+
+TEST 3 - VolLevel is not changed:
+This test checks if the volume remains unchanged when the volume decrease button is pressed (parameter value 20) at the minimum volume level. The maximum volume limit is set to 40 (MaxVol is 40), but it doesn't affect this test case. The initial volume level is at the minimum level (VolLevel is 0). After calling Button(), the expected volume level should still be 0, as the volume should not decrease below the minimum limit.
+
+These tests help ensure that the Button() procedure properly adjusts the volume based on the button pressed while respecting the volume limits.
+
+(c)
+(i)
+Runtime error
+Logical error
+
+(ii)
+M/S
+• Tests carried out before all the modules / subroutines have been written
+• Simple / dummy module written to simulate / model / replace the actual module / subroutine / object
+• Contains an output
+
+--------
+Stub testing is a technique used during the development of modular programs, where different components or modules of a program are developed and tested independently. A "stub" is a simple, temporary implementation of a module or a function that simulates the behavior of the actual module or function but doesn't provide the full functionality. It is fake...
+
+The main purpose of stub testing is to isolate different modules in the program and allow them to be tested independently before they are integrated. Stubs serve as placeholders for the actual modules, allowing developers to test the interactions between modules without having to wait for the full implementation of each module.
+
+In this technique, developers create stubs for the functions or modules that are not yet implemented or are being developed by other team members. The stubs return predefined or hardcoded values or mimic the expected behavior to some extent, allowing the rest of the program to be tested without the need for the actual implementation.
+
+Once the actual modules or functions are implemented, the stubs are replaced with the real implementations, and the entire program is tested together.
+
+Stub testing is particularly useful in large projects with multiple developers working on different parts of the code, as it helps identify issues and integration problems early in the development process, making it easier to fix them before the final integration.
+
+Q6.
+(a)
+FUNCTION SearchLeavers(Reference: STRING) RETURNS BOOLEAN
+    DECLARE i : INTEGER
+    FOR i ← 1 TO 500
+        IF Leavers[i] = Reference THEN
+            RETURN TRUE
+        ENDIF
+    NEXT
+    RETURN FALSE
+END FUNCTION
+
+Explanation:
+The module takes a string parameter called "Reference", which is the student reference to be searched in the Leavers array. The module returns a Boolean value indicating whether the reference was found in the array (TRUE) or not (FALSE).
+
+The module uses a FOR loop to search for the reference in the Leavers array. The loop iterates through all the 500 elements of the array and checks if each element matches the input reference. If a match is found, the module returns TRUE immediately, indicating that the reference is present in the array.
+
+If no match is found after checking all the elements of the array, the module returns FALSE, indicating that the reference is not present in the array.
+
+(b)
+FUNCTION ProcessStudentList() RETURNS INTEGER
+    DECLARE line, reference, name, dob : STRING
+    DECLARE count: INTEGER
+
+    OPENFILE "StudentList.txt" FOR READ
+    OPENFILE "UpdatedList.txt" FOR WRITE
+
+    count ← 0
+    WHILE NOT EOF("StudentList.txt")
+        READFILE "StudentList.txt", line
+        n ← LOCATE(line, '*')
+        reference ← MID(line, 1, n-1)
+
+        m ← LOCATE(n+1, line, '*')
+        name ← MID(line, n+1, m-n)
+
+        dob ← MID(line, m+1, LENGTH(line)-m)
+
+        IF SearchLeavers(reference) = FALSE THEN
+            WRITEFILE "UpdatedList.txt", line
+            count ← count + 1
+        ENDIF
+    ENDWHILE
+    CLOSE "StudentList.txt"
+    CLOSE "UpdatedList.txt"
+    RETURN count
+END FUNCTION
+
+Explanation:
+The module reads each line from the input file "StudentList.txt" using a WHILE loop that continues until the end of the file is reached. For each line, it extracts the reference, name, and date of birth using the GETFIELD function.
+
+The module then calls the SearchLeavers() function to check whether the reference appears in the Leavers array. If the reference is not found in the array, the module writes the entire line to the output file "UpdatedList.txt" and increments the count of lines not copied.
+
+Finally, the module closes both input and output files and returns the count of lines that were not copied to the output file.
+
+(c)
+Result ← CountTimes(Leavers[], "")
+
+Explanation:
+The statement calls the CountTimes() module and passes two parameters to it: the name of the array "Leavers" and an empty string "". The CountTimes() module counts the number of elements in the Leavers array that are the same as the empty string "" and returns the count value, which is then assigned to the variable Result. The variable Result now holds the count of unused elements in the Leavers array.
