@@ -1,0 +1,84 @@
+Question 8 from the Cambridge International AS & A Level Computer Science Paper 23 focuses on managing a computer shop's inventory through file operations, specifically modifying and reporting on stock items based on their supplier codes.
+
+Part 8(a): Writing the ChangeSupp Module
+
+The ChangeSupp() module's goal is to replace a specified supplier code (Code1) with another (Code2) in the inventory file Stock.txt, and then count how many items were updated.
+
+Pseudocode Solution for ChangeSupp():
+
+FUNCTION ChangeSupp(Code1, Code2 : STRING) RETURNS INTEGER
+    DECLARE Count : INTEGER SET TO 0
+    DECLARE ThisLine, ThisCode : STRING
+    OPENFILE "Stock.txt" FOR READ AS StockFile
+    OPENFILE "NewStock.txt" FOR WRITE AS NewStockFile
+    WHILE NOT EOF(StockFile)
+        ThisLine := READLINE(StockFile)
+        ThisCode := MID(ThisLine, 5, 3)  // Assuming ItemNum is 4 chars; SupplierCode starts at 5th position
+        IF ThisCode = Code1 THEN
+            ThisLine := LEFT(ThisLine, 4) & Code2 & RIGHT(ThisLine, LENGTH(ThisLine) - 7)
+            Count := Count + 1
+        ENDIF
+        WRITELINE(NewStockFile, ThisLine)
+    ENDWHILE
+    CLOSEFILE StockFile
+    CLOSEFILE NewStockFile
+    RETURN Count
+ENDFUNCTION
+
+
+Explanation for ChangeSupp():
+
+- File Handling: Opens Stock.txt for reading and NewStock.txt for writing. This ensures the original stock file remains unchanged if the operation fails.
+- Line Processing: Reads each line, extracts the supplier code, and checks if it matches Code1.
+- Code Replacement: If a match is found, it constructs a new line with Code2 replacing Code1 and increments the Count.
+- Output and Count: Writes the (possibly modified) line to NewStock.txt and returns the total count of modified lines.
+
+Part 8(b): Writing the Report_1 Module
+
+The Report_1() module generates a report for a given supplier code, listing all items supplied by that supplier.
+
+Pseudocode Solution for Report_1():
+
+pseudocode
+PROCEDURE Report_1(SuppCode : STRING)
+    DECLARE ThisLine, ItemNum, Description, ThisCode : STRING
+    DECLARE Count : INTEGER SET TO 0
+    OPENFILE "Stock.txt" FOR READ AS StockFile
+    OUTPUT "Report for Supplier:" & SuppCode
+    OUTPUT "Item  Description"
+    WHILE NOT EOF(StockFile)
+        ThisLine := READLINE(StockFile)
+        ThisCode := MID(ThisLine, 5, 3)
+        IF ThisCode = SuppCode THEN
+            ItemNum := LEFT(ThisLine, 4)
+            Description := RIGHT(ThisLine, LENGTH(ThisLine) - 7)
+            OUTPUT ItemNum & "  " & Description
+            Count := Count + 1
+        ENDIF
+    ENDWHILE
+    OUTPUT "Number of items listed: " & Count
+    CLOSEFILE StockFile
+ENDPROCEDURE
+
+
+Explanation for Report_1():
+
+- Supplier Filtering: Iterates through Stock.txt, comparing each item's supplier code with SuppCode.
+- Report Generation: For each matching item, extracts the item number and description to output alongside the supplier code.
+- Counting: Maintains a count of matching items to output at the end.
+
+Part 8(c): Modifications for the Report Layout
+
+(i) Increased Complexity Explanation:
+
+Moving the "Number of items listed" to the top of the report increases complexity because the total count must be known before the report's body is generated. This requires either pre-scanning the file to count matching items before generating the report or storing item details in memory to output after counting, both of which add steps and complexity compared to a linear read-write operation.
+
+(ii) Modified Algorithm Description:
+
+To accommodate the new layout without reading Stock.txt multiple times:
+
+1. First Pass (Counting): Iterate through the file once, storing details of matching items in a collection (like an array or list) while counting them.
+2. Report Generation: With the total count now known, output the "Number of items listed" at the top of the report.
+3. Detail Output: Iterate through the stored collection of item details, outputting each item's information as part of the report body.
+
+This approach combines the efficiency of a single file read with the flexibility to format the report with a known item count upfront.

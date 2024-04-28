@@ -1,0 +1,72 @@
+// Initialize the array with the names of the days of the week
+Days[1] ← "Sunday"
+Days[2] ← "Monday"
+Days[3] ← "Tuesday"
+Days[4] ← "Wednesday"
+Days[5] ← "Thursday"
+Days[6] ← "Friday"
+Days[7] ← "Saturday"
+
+// Iterate over each day of the week
+FOR day ← 1 TO 7 DO
+    // Iterate over each hour in a day
+    FOR hour ← 1 TO 24 DO
+        REPEAT
+
+            // Prompt user for temperature input
+            OUTPUT "Enter temperature for ", Days[day], " at hour ", hour, ": "
+            INPUT temp
+
+            // Check if the temperature is within the valid range
+            IF temp < -20 OR temp > 50 THEN
+                OUTPUT "Invalid temperature. Please enter a value between -20°C and 50°C."
+            ENDIF
+        UNTIL temp >= -20 AND temp <= 50
+
+        // Assign the valid temperature to the Readings array
+        Readings[day, hour] ← temp
+    NEXT hour
+NEXT day
+
+// Calculate Daily and Weekly Average Temperatures
+// Initialize the variable for the total weekly temperature
+TotalWeekTemp ← 0
+
+// Calculate daily averages and sum them up for the weekly average
+FOR day ← 1 TO 7 DO
+
+    // Initialize the daily total temperature
+    dailyTotal ← 0
+    FOR hour ← 1 TO 24 DO
+
+        // Add up temperatures for each hour
+        dailyTotal ← dailyTotal + Readings[day, hour]
+    NEXT hour
+
+    // Calculate and store the average temperature for the day
+    AverageTemp[day] ← ROUND(dailyTotal / 24, 1)
+
+    // Add the daily average to the weekly total
+    TotalWeekTemp ← TotalWeekTemp + AverageTemp[day]
+NEXT day
+// Calculate the weekly average temperature
+AverageWeekTemp ← ROUND(TotalWeekTemp / 7, 1)
+
+//Convert Daily and Weekly Averages to Fahrenheit and Output
+
+// Iterate over each day to convert and output average temperatures in Fahrenheit
+FOR day ← 1 TO 7 DO
+    // Convert the daily average temperature to Fahrenheit
+    avgFahrenheit ← ROUND(AverageTemp[day] * 9 / 5 + 32, 1)
+
+    // Output the daily average temperatures in Celsius and Fahrenheit
+    OUTPUT Days[day], ": Avg Temp: ", AverageTemp[day], "°C / ", avgFahrenheit, "°F"
+NEXT day
+
+// Convert the weekly average temperature to Fahrenheit
+avgWeekFahrenheit ← ROUND(AverageWeekTemp * 9 / 5 + 32, 1)
+
+// Output the weekly average temperatures in Celsius and Fahrenheit
+OUTPUT "Weekly Average: ", AverageWeekTemp, "°C / ", avgWeekFahrenheit, "°F"
+
+

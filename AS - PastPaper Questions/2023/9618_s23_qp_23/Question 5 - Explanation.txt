@@ -1,0 +1,16 @@
+Question 5 from the exam paper deals with testing methodologies and maintenance types for software programs. Let's tackle each part with explanations in my own words.
+
+Part 5(a): Testing the Program with the Walkthrough Method
+
+When preparing to test a program using the walkthrough method, additional information beyond just the program code is crucial. Specifically, you need a detailed test plan that includes:
+
+- Test Cases: These are specific scenarios designed to test various aspects of the program. A test case will specify input values for the program and the expected output, allowing testers to compare the actual outcome with what should theoretically occur.
+- Expected Results: For each test case, there must be a clear expectation of what the program should produce. This could be a numerical result, a specific output message, or a new state within the program.
+
+Explanation: The walkthrough method involves going through the program step by step, often with a group that includes developers, testers, and sometimes stakeholders. The test plan, with its cases and expected outcomes, provides a structured approach for this examination. It enables the team to systematically assess whether the program behaves as intended under various conditions. This method helps not just in identifying bugs, but also in verifying that the program meets the specified requirements and behaves correctly in response to different inputs.
+
+Part 5(b): Type of Maintenance Applied to Improve Speed
+
+The maintenance applied here is Perfective Maintenance.
+
+Explanation: In software development, maintenance types can generally be categorized as corrective, adaptive, perfective, and preventive. Perfective maintenance focuses on improving the performance of the program or enhancing its features beyond the original requirements. By making the program respond faster, developers are not fixing a bug (corrective) or adapting to a new environment (adaptive), nor are they preventing future issues (preventive). Instead, they are enhancing the user experience by optimizing the program's efficiency, which falls squarely into the realm of perfective maintenance. This type of maintenance is essential for keeping software relevant and ensuring it continues to meet users' evolving expectations over time.

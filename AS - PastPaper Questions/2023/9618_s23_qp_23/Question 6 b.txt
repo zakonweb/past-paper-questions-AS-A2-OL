@@ -1,0 +1,29 @@
+Question 6(b) discusses creating a new function, CheckNum(), to streamline the procedure outlined in part (a). This function enhances modularity by encapsulating the logic for checking if the sum of the last two digits of a number equals a specified sum, which can vary, not just 6. The question requests a description of the function's interface and two advantages of this modular approach.
+
+Function Interface Explanation
+
+The CheckNum() function needs to accept two parameters:
+
+1. The number to be checked (Number): An integer whose last two digits will be evaluated.
+2. The desired sum of the last two digits (DesiredSum): An integer that the sum of the last two digits of Number should match.
+
+The function should return a Boolean value (TRUE or FALSE):
+
+- TRUE if the sum of the last two digits of Number matches DesiredSum.
+- FALSE otherwise.
+
+Pseudocode for Function Interface:
+
+pseudocode
+FUNCTION CheckNum(Number, DesiredSum : INTEGER) RETURNS BOOLEAN
+
+
+Advantages of Modular Approach
+
+1. Reusability: By encapsulating the logic for checking the sum of the last two digits into its function, you can easily reuse this functionality anywhere in the program without duplicating code. This is particularly useful if multiple parts of the program need to perform this check with different sums. It simplifies maintenance and ensures consistency across the codebase.
+
+2. Simplification of Complexity: Decomposing a complex problem into smaller, manageable functions makes the overall program easier to understand, debug, and test. Each module (function) can be developed and tested independently, which reduces the complexity of the development process. For instance, CheckNum() can be independently verified to work correctly for various inputs, ensuring reliability when integrated into larger solutions.
+
+3. Ease of Maintenance: If the logic for checking the sum of the last two digits needs to be modified (e.g., to accommodate a different calculation method or to fix a bug), changes only need to be made in one place: within the CheckNum() function. This centralization of logic prevents errors that might arise from having multiple, potentially inconsistent copies of the same logic scattered throughout the program.
+
+In summary, creating a CheckNum() function as described optimizes the program's design for reusability, maintainability, and simplicity, following best practices in software development.

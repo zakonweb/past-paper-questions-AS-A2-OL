@@ -1,0 +1,83 @@
+WoodType[1] ← "Laminate"
+WoodType[2] ← "Pine"
+WoodType[3] ← "Oak"
+
+Price[1] ← 29.99
+Price[2] ← 39.99
+Price[3] ← 54.99
+
+// Loop for 100 customers data collection
+// calculations and storage in the given arrays
+FOR index ← 1 TO 100  // Count based loop
+   //  Input current customer name
+   INPUT "Enter Customer name: ", CustName
+
+   //  Input customer's room length and validate it
+   REPEAT   // Repeat loop for the range check validation
+      INPUT "Enter room length between 1.5 & 10.0: ", RoomL
+      IF RoomL < 1.5 OR RoomL > 10.0 THEN OUTPUT "Wrong entry..."
+   UNTIL RoomL >= 1.5 AND RoomL <= 10.0
+
+   //  Input customer's room width and validate it
+   REPEAT   // Repeat loop for the range check validation
+      INPUT "Enter room width between 1.5 & 10.0: ", RoomW
+      IF RoomW < 1.5 OR RoomW > 10.0 THEN OUTPUT "Wrong entry..."
+   UNTIL RoomW >= 1.5 AND RoomW <= 10.0
+
+   // Calculate customer's room area
+   RoomA ← RoomL * RoomW
+
+   // Present wood type menu and input wood type
+   // after the validation
+   OUTPUT "Wood Types Menu:"	// Wood Types Menu:
+   OUTPUT "1. " & WoodType[1]	// 1. Laminate
+   OUTPUT "2. " & WoodType[2]	// 2. Pine
+   OUTPUT "3. " & WoodType[3]   // 3. Oak
+
+   REPEAT   // Repeat loop for the range check validation
+      INPUT "Enter wood choice between 1 & 3: ", WoodChoice
+      IF WoodChoice < 1 OR WoodChoice > 3 THEN OUTPUT "Wrong entry..."
+   UNTIL WoodChoice >= 1 AND WoodChoice <= 3
+
+   // Calculate the wood prices as the wood choice made
+   WoodPrice ← RoomA * Price[WoodChoice]
+
+   // Round and store the data in the arrays
+   // Name in customers[] and rest after rounding to the 
+   // Quotations[]
+   Customers[index] ← CustName
+   Quotation[index, 1] ← ROUND(RoomL,1)
+   Quotation[index, 2] ← ROUND(RoomW,1)
+   Quotation[index, 3] ← ROUND(RoomA+0.5,0)  // ROUND UP TO NEXT WHOLE NUM
+   Quotation[index, 4] ← WoodChoice
+   Quotation[index, 5] ← ROUND(WoodPrice,2) 
+
+   // Output the customers quaotation on screen
+   OUTPUT "Customer Quatation:"
+   OUTPUT "------------------"
+   OUTPUT "Cutomer name: ", Customers[index]
+   OUTPUT "Choice of wood:", WoodType[WoodChoice]
+   OUTPUT "Price of the wood: ", Quotation[index, 5]
+NEXT
+
+   
+      
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------
+Round(L,1) 
+Round(W,1) 
+Round(A+0.5,0)
+Round(C,0)
+Round(P,2)
+-----------------------------

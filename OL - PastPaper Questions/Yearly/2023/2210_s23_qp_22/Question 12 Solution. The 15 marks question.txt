@@ -1,0 +1,84 @@
+Question 12:
+Write a program that meets the following requirements:
+• checks the account ID exists and the name and password entered by the account holder match the name and password stored in Account[] before any action can take place.
+---------------------------------------------
+PROCEDURE Main() // A procedure to run when the program starts
+   DECLARE accountID : INTEGER
+   DECLARE nameInput : STRING
+   DECLARE passwordInput : STRING
+   
+   OUTPUT "Enter Account ID: "
+   INPUT accountID
+   IF accountID > 0 AND accountID <= Size THEN
+       OUTPUT "Enter Name: "
+       INPUT nameInput
+       OUTPUT "Enter Password: "
+       INPUT passwordInput
+       
+       IF Account[accountID, 1] = nameInput AND Account[accountID, 2] = passwordInput THEN
+           CALL DisplayMenu(accountID)
+       ELSE
+           OUTPUT "Invalid name or password."
+       ENDIF
+   ELSE
+       OUTPUT "Invalid Account ID."
+   ENDIF
+ENDPROCEDURE
+
+--------------------------------------------------------
+• displays a menu showing the four actions available for the account holder to choose from:
+1. display balance
+2. withdraw money
+3. deposit money
+4. exit
+• allows an action to be chosen and completed. Each action is completed by a procedure
+with a parameter of the account ID.
+
+// Menu Display and Action Selection
+PROCEDURE DisplayMenu(accountID : INTEGER)
+   DECLARE choice : INTEGER
+   REPEAT
+       // Present Menu to the Account Holder
+       OUTPUT "Select an option:"
+       OUTPUT "1. Display Balance"
+       OUTPUT "2. Withdraw Money"
+       OUTPUT "3. Deposit Money"
+       OUTPUT "4. Exit"
+       INPUT choice
+
+       CASE OF choice
+           1 : CALL DisplayBalance(accountID)
+           2 : CALL WithdrawMoney(accountID)
+           3 : CALL DepositMoney(accountID)
+           4 : OUTPUT "Exiting..."
+           OTHERWISE : OUTPUT "Invalid choice, please try again."
+       ENDCASE
+   UNTIL choice = 4
+ENDPROCEDURE
+
+// Action Procedures
+PROCEDURE DisplayBalance(accountID : INTEGER)
+   OUTPUT "Current balance: ", AccDetails[accountID, 1]
+ENDPROCEDURE
+
+PROCEDURE WithdrawMoney(accountID : INTEGER)
+   DECLARE amount : REAL
+   OUTPUT "Enter amount to withdraw: "
+   INPUT amount
+   IF amount <= AccDetails[accountID, 3] AND (AccDetails[accountID, 1] - amount >= -AccDetails[accountID, 2]) THEN
+       AccDetails[accountID, 1] ← AccDetails[accountID, 1] - amount
+       OUTPUT "Withdrawal successful. New balance: ", AccDetails[accountID, 1]
+   ELSE
+       OUTPUT "Cannot withdraw. Amount exceeds limit or insufficient funds."
+   ENDIF
+ENDPROCEDURE
+
+PROCEDURE DepositMoney(accountID : INTEGER)
+   DECLARE amount : REAL
+   OUTPUT "Enter amount to deposit: "
+   INPUT amount
+   AccDetails[accountID, 1] ← AccDetails[accountID, 1] + amount
+   OUTPUT "Deposit successful. New balance: ", AccDetails[accountID, 1]
+ENDPROCEDURE
+
+

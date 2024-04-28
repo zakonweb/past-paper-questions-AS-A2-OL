@@ -1,0 +1,36 @@
+Question 7 from the Cambridge International AS & A Level Computer Science Paper 23 focuses on a library system that allows students to borrow books, involving aspects of abstraction, required and unnecessary information for a new module, and operations needed when an overdue book is returned. Let's solve each part of the question.
+
+Part 7(a): Abstraction in Problem-solving
+
+(i) Purpose of Applying Abstraction
+
+Abstraction in problem-solving is used to focus on the essential attributes of a problem while ignoring irrelevant details. This approach simplifies the problem-solving process by concentrating on what needs to be solved without getting distracted by unnecessary information.
+
+In the context of the new module for generating emails for students with overdue books, abstraction helps to identify what data and operations are critical for the module to function. For instance, it emphasizes the need for student contact information and the due dates of borrowed books, while details like the book's author or the student's home address might be considered irrelevant for this specific task.
+
+(ii) Information Required and Not Required
+
+- Required Information: Student's email address and the due date of the borrowed book. 
+  - Justification: The email address is essential for sending out the notification, while the due date is required to determine whether the book is overdue.
+
+- Not Required Information: Student's home address and the book's author.
+  - Justification: The home address is irrelevant to the process of sending an email. Similarly, the book's author is unnecessary for determining the overdue status or for the content of the reminder email.
+
+(iii) Operations Required When an Overdue Book is Returned
+
+1. Clearing the Overdue Status: Once the book is returned, the system needs to update its records to reflect that the book is no longer overdue. This might involve marking the book as returned and removing any flags or alerts associated with the student's borrowing privileges.
+
+2. Restoring Borrowing Privileges: If the system restricts borrowing privileges for students with overdue books, returning an overdue book should trigger a process to restore those privileges. This ensures that the student can borrow books again.
+
+Part 7(b): Structure Chart Completion
+
+The question hints at creating a structure chart for the library program, involving how certain modules (procedures and functions) call each other.
+
+Given that Module-X() and Module-Y() are both called from Overlay(), and considering how parameters and return types might be involved, a hypothetical structure chart could be visualized as follows:
+
+- Overlay() would be at the top, indicating it's the calling module.
+- Arrows would point from Overlay() to both Module-X() and Module-Y(). This shows the flow from Overlay() calling these modules.
+- Since Module-Y() requires parameters by reference (BYREF RA: INTEGER, SA: REAL), and Overlay() likely provides these, there should be a clear connection showing the passage of these arguments.
+- Replace() and Reset() might be utility functions that could be called by any of the procedures if they need to perform specific tasks like replacing certain data or resetting statuses. Their placement in the chart would depend on specific calls made within the pseudocode, which isn't detailed in the initial setup.
+
+The specific design of the structure chart would depend on the detailed interactions between these modules, which are suggested by their parameters and return types. The key idea is to show the hierarchy and the flow of data and control among the modules, emphasizing the modularity and the relationships in the software design.

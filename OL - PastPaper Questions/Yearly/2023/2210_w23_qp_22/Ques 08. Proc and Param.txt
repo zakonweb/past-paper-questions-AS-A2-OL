@@ -1,0 +1,9 @@
+For question 8, which asks why a programmer would use procedures and parameters when writing a program, here's a concise explanation:
+
+- Modularity: Procedures allow a program to be broken down into smaller, manageable parts. This makes the program easier to understand, develop, and maintain.
+- Code Reuse: By encapsulating functionality in procedures, the same code can be reused in multiple places within a program, reducing redundancy and the potential for errors.
+- Simplifies Complex Problems: Procedures help in simplifying complex problems by dividing them into smaller sub-problems, each handled by a specific procedure.
+- Parameters Increase Flexibility: Parameters allow procedures to be more flexible and general-purpose by passing different values and thus altering the procedure's behavior without changing its code.
+- Maintainability: Using procedures with parameters makes it easier to update and maintain the program. Changes made in a single procedure automatically reflect wherever the procedure is called.
+- Enhanced Clarity and Readability: Programs that utilize procedures and parameters tend to be more organized and easier to read, which is beneficial for both the original developer and others who may work on the code in the future.
+- Debugging Ease: Debugging a modular program with well-defined procedures is easier since issues can be isolated and addressed within individual procedures.
